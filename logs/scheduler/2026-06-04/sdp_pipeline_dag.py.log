@@ -1,0 +1,361 @@
+[2026-06-04T09:23:43.316+0000] {processor.py:161} INFO - Started process (PID=161) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:23:43.335+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:23:43.347+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:43.346+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:23:43.786+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:23:46.203+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.202+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:e-commerce_kafka_streaming_pipeline
+[2026-06-04T09:23:46.262+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.261+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:e-commerce_kafka_streaming_pipeline
+[2026-06-04T09:23:46.294+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.292+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:e-commerce_kafka_streaming_pipeline
+[2026-06-04T09:23:46.301+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.300+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:23:46.664+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.652+0000] {dag.py:3118} INFO - Creating ORM DAG for e-commerce_kafka_streaming_pipeline
+[2026-06-04T09:23:46.910+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:23:46.909+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 08:00:00+00:00, run_after=2026-06-04 09:00:00+00:00
+[2026-06-04T09:23:47.208+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 4.004 seconds
+[2026-06-04T09:24:18.379+0000] {processor.py:161} INFO - Started process (PID=177) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:18.384+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:24:18.402+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:18.393+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:18.816+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:19.052+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:19.050+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:24:19.461+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:19.459+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:24:19.815+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 1.464 seconds
+[2026-06-04T09:24:50.696+0000] {processor.py:161} INFO - Started process (PID=182) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:50.698+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:24:50.703+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:50.702+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:50.787+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:24:50.906+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:50.906+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:24:51.028+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:24:51.027+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:24:51.106+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.436 seconds
+[2026-06-04T09:25:21.362+0000] {processor.py:161} INFO - Started process (PID=187) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:21.364+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:25:21.370+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:21.369+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:21.444+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:21.538+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:21.538+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:25:21.646+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:21.645+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:25:21.708+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.366 seconds
+[2026-06-04T09:25:52.157+0000] {processor.py:161} INFO - Started process (PID=192) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:52.161+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:25:52.168+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:52.167+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:52.230+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:25:52.320+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:52.319+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:25:52.413+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:25:52.412+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:25:52.465+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.333 seconds
+[2026-06-04T09:26:23.123+0000] {processor.py:161} INFO - Started process (PID=207) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:23.125+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:26:23.134+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:23.133+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:23.206+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:23.303+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:23.303+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:26:23.396+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:23.395+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:26:23.473+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.376 seconds
+[2026-06-04T09:26:54.031+0000] {processor.py:161} INFO - Started process (PID=212) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:54.033+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:26:54.036+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:54.035+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:54.093+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:26:54.195+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:54.194+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:26:54.281+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:26:54.281+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:26:54.333+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.319 seconds
+[2026-06-04T09:27:24.729+0000] {processor.py:161} INFO - Started process (PID=217) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:24.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:27:24.741+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:24.740+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:24.806+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:24.935+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:24.934+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:27:25.029+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:25.028+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:27:25.153+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.446 seconds
+[2026-06-04T09:27:55.581+0000] {processor.py:161} INFO - Started process (PID=222) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:55.595+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:27:55.600+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:55.599+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:55.689+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:27:55.798+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:55.796+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:27:55.876+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:27:55.875+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:27:55.928+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.374 seconds
+[2026-06-04T09:28:26.387+0000] {processor.py:161} INFO - Started process (PID=238) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:26.390+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:28:26.398+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:26.396+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:26.498+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:26.618+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:26.617+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:28:26.717+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:26.716+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:28:26.789+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.430 seconds
+[2026-06-04T09:28:57.416+0000] {processor.py:161} INFO - Started process (PID=243) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:57.420+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:28:57.430+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:57.426+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:57.509+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:28:57.615+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:57.614+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:28:57.737+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:28:57.736+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:28:57.820+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.435 seconds
+[2026-06-04T09:29:28.422+0000] {processor.py:161} INFO - Started process (PID=248) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:28.425+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:29:28.429+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:28.428+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:28.793+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:28.911+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:28.905+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:29:29.027+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:29.027+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:29:29.106+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.711 seconds
+[2026-06-04T09:29:59.487+0000] {processor.py:161} INFO - Started process (PID=253) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:59.489+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:29:59.496+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:59.495+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:59.563+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:29:59.652+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:59.651+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:29:59.741+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:29:59.740+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:29:59.797+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.333 seconds
+[2026-06-04T09:30:30.242+0000] {processor.py:161} INFO - Started process (PID=258) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:30:30.248+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:30:30.255+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:30:30.254+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:30:30.322+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:30:30.437+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:30:30.436+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:30:30.528+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:30:30.527+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:30:30.603+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.379 seconds
+[2026-06-04T09:31:01.079+0000] {processor.py:161} INFO - Started process (PID=263) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:01.082+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:31:01.093+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:01.086+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:01.160+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:01.337+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:01.326+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:31:01.487+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:01.486+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:31:01.594+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.533 seconds
+[2026-06-04T09:31:31.968+0000] {processor.py:161} INFO - Started process (PID=268) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:31.976+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:31:31.980+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:31.979+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:32.038+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:31:32.136+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:32.135+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:31:32.213+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:31:32.213+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:31:32.261+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.313 seconds
+[2026-06-04T09:32:02.655+0000] {processor.py:161} INFO - Started process (PID=273) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:02.657+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:32:02.663+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:02.662+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:02.718+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:02.825+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:02.825+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:32:02.977+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:02.976+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:32:03.106+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.474 seconds
+[2026-06-04T09:32:33.348+0000] {processor.py:161} INFO - Started process (PID=278) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:33.351+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:32:33.356+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:33.355+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:33.410+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:32:33.494+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:33.494+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:32:33.584+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:32:33.583+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:32:33.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.316 seconds
+[2026-06-04T09:33:04.172+0000] {processor.py:161} INFO - Started process (PID=283) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:04.174+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:33:04.181+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:04.179+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:04.238+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:04.328+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:04.328+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:33:04.405+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:04.404+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:33:04.459+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.308 seconds
+[2026-06-04T09:33:34.853+0000] {processor.py:161} INFO - Started process (PID=288) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:34.856+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:33:34.861+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:34.860+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:34.913+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:33:35.016+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:35.016+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:33:35.097+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:33:35.096+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:33:35.150+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.319 seconds
+[2026-06-04T09:34:05.344+0000] {processor.py:161} INFO - Started process (PID=293) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:05.351+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:34:05.362+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:05.355+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:05.480+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:05.603+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:05.602+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:34:05.679+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:05.679+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:34:05.729+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.422 seconds
+[2026-06-04T09:34:35.967+0000] {processor.py:161} INFO - Started process (PID=298) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:35.969+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:34:35.974+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:35.973+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:36.031+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:34:36.123+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:36.122+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:34:36.219+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:34:36.218+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:34:36.286+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.337 seconds
+[2026-06-04T09:35:06.394+0000] {processor.py:161} INFO - Started process (PID=303) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:06.396+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:35:06.399+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:06.398+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:06.463+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:06.549+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:06.548+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:35:06.649+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:06.649+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:35:06.737+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.359 seconds
+[2026-06-04T09:35:37.288+0000] {processor.py:161} INFO - Started process (PID=308) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:37.297+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:35:37.306+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:37.305+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:37.465+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:35:37.575+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:37.575+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:35:37.684+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:35:37.683+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:35:37.752+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.497 seconds
+[2026-06-04T09:36:08.101+0000] {processor.py:161} INFO - Started process (PID=313) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:08.103+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:36:08.109+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:08.108+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:08.166+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:08.272+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:08.272+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:36:08.343+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:08.342+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:36:08.392+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.307 seconds
+[2026-06-04T09:36:38.709+0000] {processor.py:161} INFO - Started process (PID=318) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:38.711+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:36:38.715+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:38.715+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:38.770+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:36:38.865+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:38.865+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:36:38.955+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:36:38.955+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:36:39.027+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.338 seconds
+[2026-06-04T09:37:09.443+0000] {processor.py:161} INFO - Started process (PID=323) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:09.446+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:37:09.456+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:09.452+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:09.548+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:09.631+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:09.629+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:37:09.711+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:09.710+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:37:09.764+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.345 seconds
+[2026-06-04T09:37:40.084+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:40.086+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:37:40.092+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:40.090+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:40.160+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:37:40.247+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:40.246+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:37:40.332+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:37:40.332+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:37:40.384+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.323 seconds
+[2026-06-04T09:38:10.935+0000] {processor.py:161} INFO - Started process (PID=333) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:10.939+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:38:10.945+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:10.943+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:11.010+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:11.124+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:11.123+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:38:11.217+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:11.216+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:38:11.287+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.373 seconds
+[2026-06-04T09:38:41.727+0000] {processor.py:161} INFO - Started process (PID=338) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:41.731+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:38:41.736+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:41.735+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:41.795+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:38:41.877+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:41.877+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:38:41.992+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:38:41.991+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:38:42.111+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.392 seconds
+[2026-06-04T09:39:12.487+0000] {processor.py:161} INFO - Started process (PID=343) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:12.490+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:39:12.495+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:12.494+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:12.545+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:12.620+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:12.620+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:39:12.708+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:12.707+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:39:12.769+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.305 seconds
+[2026-06-04T09:39:43.258+0000] {processor.py:161} INFO - Started process (PID=348) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:43.260+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:39:43.265+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:43.264+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:43.324+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:39:43.423+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:43.422+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:39:43.504+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:39:43.503+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:39:43.564+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.327 seconds
+[2026-06-04T09:40:13.761+0000] {processor.py:161} INFO - Started process (PID=353) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:13.764+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:40:13.772+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:13.771+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:13.819+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:13.904+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:13.903+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:40:13.989+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:13.988+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:40:14.063+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.323 seconds
+[2026-06-04T09:40:44.365+0000] {processor.py:161} INFO - Started process (PID=358) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:44.367+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:40:44.374+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:44.373+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:44.425+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:40:44.503+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:44.502+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:40:44.583+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:40:44.583+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:40:44.642+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.298 seconds
+[2026-06-04T09:41:14.886+0000] {processor.py:161} INFO - Started process (PID=363) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:14.888+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:41:14.892+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:14.891+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:14.953+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:15.040+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:15.039+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:41:15.123+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:15.122+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:41:15.180+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.306 seconds
+[2026-06-04T09:41:45.491+0000] {processor.py:161} INFO - Started process (PID=368) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:45.495+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:41:45.502+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:45.500+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:45.552+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:41:45.648+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:45.648+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:41:45.720+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:41:45.719+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:41:45.777+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.307 seconds
+[2026-06-04T09:42:16.112+0000] {processor.py:161} INFO - Started process (PID=373) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:16.115+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:42:16.120+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:16.119+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:16.177+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:16.268+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:16.266+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:42:16.357+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:16.356+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:42:16.420+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.329 seconds
+[2026-06-04T09:42:46.786+0000] {processor.py:161} INFO - Started process (PID=378) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:46.787+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:42:46.790+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:46.789+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:46.849+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:42:46.939+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:46.939+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:42:47.019+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:42:47.018+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:42:47.076+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.312 seconds
+[2026-06-04T09:43:17.444+0000] {processor.py:161} INFO - Started process (PID=383) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:17.447+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:43:17.453+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:17.452+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:17.526+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:17.694+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:17.693+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:43:17.818+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:17.817+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:43:17.877+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.454 seconds
+[2026-06-04T09:43:48.324+0000] {processor.py:161} INFO - Started process (PID=388) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:48.327+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:43:48.332+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:48.331+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:48.389+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:43:48.481+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:48.480+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:43:48.571+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:43:48.569+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:43:48.634+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.326 seconds
+[2026-06-04T09:44:19.001+0000] {processor.py:161} INFO - Started process (PID=393) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:19.003+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:44:19.011+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:19.010+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:19.069+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:19.155+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:19.154+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:44:19.243+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:19.242+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:44:19.297+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.318 seconds
+[2026-06-04T09:44:49.636+0000] {processor.py:161} INFO - Started process (PID=398) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:49.640+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:44:49.647+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:49.646+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:49.697+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:44:49.783+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:49.782+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:44:49.908+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:44:49.907+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:44:49.963+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.348 seconds
+[2026-06-04T09:45:20.298+0000] {processor.py:161} INFO - Started process (PID=403) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:20.301+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:45:20.307+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:20.306+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:20.356+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:20.451+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:20.450+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:45:20.542+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:20.541+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:45:20.593+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.316 seconds
+[2026-06-04T09:45:50.971+0000] {processor.py:161} INFO - Started process (PID=408) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:50.974+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:45:50.979+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:50.978+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:51.029+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:45:51.121+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:51.120+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:45:51.205+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:45:51.205+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:45:51.261+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.311 seconds
+[2026-06-04T09:46:21.608+0000] {processor.py:161} INFO - Started process (PID=413) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:21.611+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:46:21.618+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:21.617+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:21.691+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:21.805+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:21.804+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:46:21.911+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:21.910+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:46:21.984+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.402 seconds
+[2026-06-04T09:46:52.333+0000] {processor.py:161} INFO - Started process (PID=418) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:52.336+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:46:52.343+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:52.342+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:52.401+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:46:52.495+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:52.494+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:46:52.582+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:46:52.582+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:46:52.638+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.326 seconds
+[2026-06-04T09:47:23.018+0000] {processor.py:161} INFO - Started process (PID=423) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:23.020+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:47:23.026+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:23.025+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:23.105+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:23.209+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:23.209+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:47:23.335+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:23.334+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:47:23.438+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.443 seconds
+[2026-06-04T09:47:53.828+0000] {processor.py:161} INFO - Started process (PID=428) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:53.830+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:47:53.835+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:53.834+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:53.903+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:47:53.996+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:53.996+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:47:54.082+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:47:54.081+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:47:54.148+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.339 seconds
+[2026-06-04T09:48:24.464+0000] {processor.py:161} INFO - Started process (PID=433) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:24.466+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:48:24.472+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:24.471+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:24.524+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:24.601+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:24.600+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:48:24.677+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:24.676+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:48:24.734+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.298 seconds
+[2026-06-04T09:48:54.933+0000] {processor.py:161} INFO - Started process (PID=438) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:54.936+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:48:54.941+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:54.940+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:55.013+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:48:55.120+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:55.120+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:48:55.227+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:48:55.227+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:48:55.314+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.402 seconds
+[2026-06-04T09:49:25.594+0000] {processor.py:161} INFO - Started process (PID=443) to work on /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:49:25.597+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sdp_pipeline_dag.py for tasks to queue
+[2026-06-04T09:49:25.601+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:49:25.600+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:49:25.656+0000] {processor.py:840} INFO - DAG(s) 'e-commerce_kafka_streaming_pipeline' retrieved from /opt/airflow/dags/sdp_pipeline_dag.py
+[2026-06-04T09:49:25.741+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:49:25.740+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-04T09:49:25.812+0000] {logging_mixin.py:188} INFO - [2026-06-04T09:49:25.811+0000] {dag.py:3954} INFO - Setting next_dagrun for e-commerce_kafka_streaming_pipeline to 2026-06-04 09:00:00+00:00, run_after=2026-06-04 10:00:00+00:00
+[2026-06-04T09:49:25.868+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sdp_pipeline_dag.py took 0.297 seconds

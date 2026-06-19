@@ -1,0 +1,48 @@
+[2026-06-09T13:09:38.492+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-09T13:09:39.492+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:09:39.865+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:09:40.118+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-06-09T13:09:41.095+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): produce_messages> on 2026-06-09 12:00:00+00:00
+[2026-06-09T13:09:41.437+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=4843) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-09T13:09:41.507+0000] {standard_task_runner.py:63} INFO - Started process 4849 to run task
+[2026-06-09T13:09:41.422+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v10', 'produce_messages', 'scheduled__2026-06-09T12:00:00+00:00', '--job-id', '100', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmpokjoxwhw']
+[2026-06-09T13:09:41.621+0000] {standard_task_runner.py:91} INFO - Job 100: Subtask produce_messages
+[2026-06-09T13:09:43.175+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [running]> on host 19d9c0c71dcc
+[2026-06-09T13:09:45.190+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v10' AIRFLOW_CTX_TASK_ID='produce_messages' AIRFLOW_CTX_EXECUTION_DATE='2026-06-09T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-09T12:00:00+00:00'
+[2026-06-09T13:09:45.231+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-09T13:09:45.856+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-09T13:09:45.888+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/pipelines/api_to_kafka.py']
+[2026-06-09T13:09:46.080+0000] {subprocess.py:86} INFO - Output:
+[2026-06-09T13:09:55.854+0000] {subprocess.py:93} INFO - Error publishing to orders: HTTPSConnectionPool(host='fakestoreapi.com', port=443): Max retries exceeded with url: /carts (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x76c781b09790>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-06-09T13:09:55.862+0000] {subprocess.py:93} INFO - Error publishing to customers: HTTPSConnectionPool(host='fakestoreapi.com', port=443): Max retries exceeded with url: /users (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x76c781b09790>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-06-09T13:09:55.864+0000] {subprocess.py:93} INFO - Error publishing to products: HTTPSConnectionPool(host='fakestoreapi.com', port=443): Max retries exceeded with url: /products (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x76c781b096a0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-06-09T13:09:56.162+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-09T13:09:56.163+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-09T13:09:56.265+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=e-commerce_kafka_streaming_pipeline_v10, task_id=produce_messages, execution_date=20260609T120000, start_date=20260609T130939, end_date=20260609T130956
+[2026-06-09T13:09:56.373+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-09T13:09:56.496+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-09T13:09:56.507+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-09T13:50:49.493+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-09T13:50:49.548+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:50:49.567+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:50:49.567+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-06-09T13:50:49.591+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): produce_messages> on 2026-06-09 12:00:00+00:00
+[2026-06-09T13:50:49.605+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v10', 'produce_messages', 'scheduled__2026-06-09T12:00:00+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmp5idyr62c']
+[2026-06-09T13:50:49.614+0000] {standard_task_runner.py:91} INFO - Job 105: Subtask produce_messages
+[2026-06-09T13:50:49.614+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5304) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-09T13:50:49.616+0000] {standard_task_runner.py:63} INFO - Started process 5305 to run task
+[2026-06-09T13:50:49.729+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v10.produce_messages scheduled__2026-06-09T12:00:00+00:00 [running]> on host 19d9c0c71dcc
+[2026-06-09T13:50:49.877+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v10' AIRFLOW_CTX_TASK_ID='produce_messages' AIRFLOW_CTX_EXECUTION_DATE='2026-06-09T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-09T12:00:00+00:00'
+[2026-06-09T13:50:49.878+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-09T13:50:49.904+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-09T13:50:49.906+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/pipelines/api_to_kafka.py']
+[2026-06-09T13:50:49.920+0000] {subprocess.py:86} INFO - Output:
+[2026-06-09T13:50:56.775+0000] {subprocess.py:93} INFO - Published 7 records to topic 'orders'
+[2026-06-09T13:50:56.778+0000] {subprocess.py:93} INFO - Published 10 records to topic 'customers'
+[2026-06-09T13:50:56.779+0000] {subprocess.py:93} INFO - Published 20 records to topic 'products'
+[2026-06-09T13:50:56.905+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-09T13:50:56.906+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-09T13:50:56.960+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=e-commerce_kafka_streaming_pipeline_v10, task_id=produce_messages, execution_date=20260609T120000, start_date=20260609T135049, end_date=20260609T135056
+[2026-06-09T13:50:57.035+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-09T13:50:57.095+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-09T13:50:57.099+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

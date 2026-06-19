@@ -1,0 +1,698 @@
+[2026-06-09T13:14:01.068+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-09T13:14:01.124+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:14:01.137+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:14:01.138+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2026-06-09T13:14:01.159+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-06-09 12:00:00+00:00
+[2026-06-09T13:14:01.175+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=4915) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-09T13:14:01.173+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v10', 'run_bronze', 'scheduled__2026-06-09T12:00:00+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmpdhral_ew']
+[2026-06-09T13:14:01.177+0000] {standard_task_runner.py:63} INFO - Started process 4916 to run task
+[2026-06-09T13:14:01.177+0000] {standard_task_runner.py:91} INFO - Job 102: Subtask run_bronze
+[2026-06-09T13:14:01.267+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [running]> on host 19d9c0c71dcc
+[2026-06-09T13:14:01.396+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v10' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-06-09T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-09T12:00:00+00:00'
+[2026-06-09T13:14:01.398+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-09T13:14:01.421+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-09T13:14:01.423+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 120s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-06-09T13:14:01.440+0000] {subprocess.py:86} INFO - Output:
+[2026-06-09T13:14:05.991+0000] {subprocess.py:93} INFO - 26/06/09 13:14:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-09T13:14:07.284+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkContext: Running Spark version 3.5.1
+[2026-06-09T13:14:07.285+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkContext: OS info Linux, 6.6.114.1-microsoft-standard-WSL2, amd64
+[2026-06-09T13:14:07.287+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkContext: Java version 11.0.22
+[2026-06-09T13:14:07.346+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceUtils: ==============================================================
+[2026-06-09T13:14:07.347+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-06-09T13:14:07.349+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceUtils: ==============================================================
+[2026-06-09T13:14:07.350+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-06-09T13:14:07.385+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-06-09T13:14:07.405+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-06-09T13:14:07.410+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-06-09T13:14:07.484+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SecurityManager: Changing view acls to: spark
+[2026-06-09T13:14:07.486+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SecurityManager: Changing modify acls to: spark
+[2026-06-09T13:14:07.490+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SecurityManager: Changing view acls groups to:
+[2026-06-09T13:14:07.492+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SecurityManager: Changing modify acls groups to:
+[2026-06-09T13:14:07.493+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-06-09T13:14:07.862+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO Utils: Successfully started service 'sparkDriver' on port 41101.
+[2026-06-09T13:14:07.939+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkEnv: Registering MapOutputTracker
+[2026-06-09T13:14:08.004+0000] {subprocess.py:93} INFO - 26/06/09 13:14:07 INFO SparkEnv: Registering BlockManagerMaster
+[2026-06-09T13:14:08.063+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-06-09T13:14:08.068+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-06-09T13:14:08.077+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-06-09T13:14:08.127+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-04dd1162-5d7c-45e8-afea-4b62437fac71
+[2026-06-09T13:14:08.158+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-06-09T13:14:08.191+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-06-09T13:14:08.489+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-06-09T13:14:08.596+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-06-09T13:14:08.662+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://a36001ad1a3a:41101/jars/delta-spark_2.12-3.2.0.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.665+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://a36001ad1a3a:41101/jars/delta-storage-3.2.0.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.668+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://a36001ad1a3a:41101/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.670+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://a36001ad1a3a:41101/jars/kafka-clients-3.4.1.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.672+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://a36001ad1a3a:41101/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.675+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://a36001ad1a3a:41101/jars/commons-pool2-2.11.1.jar with timestamp 1781010847262
+[2026-06-09T13:14:08.828+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-06-09T13:14:08.916+0000] {subprocess.py:93} INFO - 26/06/09 13:14:08 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.4:7077 after 48 ms (0 ms spent in bootstraps)
+[2026-06-09T13:14:09.063+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260609131409-0042
+[2026-06-09T13:14:09.066+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609131409-0042/0 on worker-20260608131402-172.18.0.5-38399 (172.18.0.5:38399) with 1 core(s)
+[2026-06-09T13:14:09.085+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609131409-0042/0 on hostPort 172.18.0.5:38399 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:14:09.092+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609131409-0042/1 on worker-20260608131402-172.18.0.5-38399 (172.18.0.5:38399) with 1 core(s)
+[2026-06-09T13:14:09.099+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609131409-0042/1 on hostPort 172.18.0.5:38399 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:14:09.100+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609131409-0042/2 on worker-20260608131402-172.18.0.6-44005 (172.18.0.6:44005) with 1 core(s)
+[2026-06-09T13:14:09.105+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609131409-0042/2 on hostPort 172.18.0.6:44005 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:14:09.125+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 32961.
+[2026-06-09T13:14:09.127+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO NettyBlockTransferService: Server created on a36001ad1a3a:32961
+[2026-06-09T13:14:09.133+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-06-09T13:14:09.164+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, a36001ad1a3a, 32961, None)
+[2026-06-09T13:14:09.186+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO BlockManagerMasterEndpoint: Registering block manager a36001ad1a3a:32961 with 434.4 MiB RAM, BlockManagerId(driver, a36001ad1a3a, 32961, None)
+[2026-06-09T13:14:09.196+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, a36001ad1a3a, 32961, None)
+[2026-06-09T13:14:09.207+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, a36001ad1a3a, 32961, None)
+[2026-06-09T13:14:09.255+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609131409-0042/0 is now RUNNING
+[2026-06-09T13:14:09.257+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609131409-0042/1 is now RUNNING
+[2026-06-09T13:14:09.262+0000] {subprocess.py:93} INFO - 26/06/09 13:14:09 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609131409-0042/2 is now RUNNING
+[2026-06-09T13:14:10.121+0000] {subprocess.py:93} INFO - 26/06/09 13:14:10 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-06-09T13:14:11.101+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-06-09T13:14:55.062+0000] {subprocess.py:93} INFO - 26/06/09 13:14:55 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:14:55.357+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-06-09T13:14:58.668+0000] {subprocess.py:93} INFO - 26/06/09 13:14:58 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:14:58.852+0000] {subprocess.py:93} INFO - Starting stream: products -> /opt/data/bronze/products
+[2026-06-09T13:14:59.034+0000] {subprocess.py:93} INFO - 26/06/09 13:14:59 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-06-09T13:15:01.013+0000] {subprocess.py:93} INFO - 26/06/09 13:15:01 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-06-09T13:15:02.285+0000] {subprocess.py:93} INFO - 26/06/09 13:15:02 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:15:05.180+0000] {subprocess.py:93} INFO - 26/06/09 13:15:05 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-06-09T13:16:02.705+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-06-09T13:16:02.708+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-09T13:16:02.743+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-06-09T13:16:02.764+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=e-commerce_kafka_streaming_pipeline_v10, task_id=run_bronze, execution_date=20260609T120000, start_date=20260609T131401, end_date=20260609T131602
+[2026-06-09T13:16:02.828+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 102 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 4916)
+[2026-06-09T13:16:02.890+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-09T13:16:02.967+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-09T13:16:02.996+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-06-09T13:55:02.328+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-09T13:55:02.429+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:55:02.456+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [queued]>
+[2026-06-09T13:55:02.458+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2026-06-09T13:55:02.495+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-06-09 12:00:00+00:00
+[2026-06-09T13:55:02.520+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v10', 'run_bronze', 'scheduled__2026-06-09T12:00:00+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmp62u58mli']
+[2026-06-09T13:55:02.531+0000] {standard_task_runner.py:91} INFO - Job 107: Subtask run_bronze
+[2026-06-09T13:55:02.533+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5361) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-09T13:55:02.535+0000] {standard_task_runner.py:63} INFO - Started process 5362 to run task
+[2026-06-09T13:55:02.713+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v10.run_bronze scheduled__2026-06-09T12:00:00+00:00 [running]> on host 19d9c0c71dcc
+[2026-06-09T13:55:02.892+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v10' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-06-09T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-09T12:00:00+00:00'
+[2026-06-09T13:55:02.894+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-09T13:55:02.922+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-09T13:55:02.925+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 120s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-06-09T13:55:02.939+0000] {subprocess.py:86} INFO - Output:
+[2026-06-09T13:55:08.466+0000] {subprocess.py:93} INFO - 26/06/09 13:55:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-06-09T13:55:09.903+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO SparkContext: Running Spark version 3.5.1
+[2026-06-09T13:55:09.904+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO SparkContext: OS info Linux, 6.6.114.1-microsoft-standard-WSL2, amd64
+[2026-06-09T13:55:09.905+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO SparkContext: Java version 11.0.22
+[2026-06-09T13:55:09.969+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO ResourceUtils: ==============================================================
+[2026-06-09T13:55:09.972+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-06-09T13:55:09.974+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO ResourceUtils: ==============================================================
+[2026-06-09T13:55:09.976+0000] {subprocess.py:93} INFO - 26/06/09 13:55:09 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-06-09T13:55:10.015+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-06-09T13:55:10.048+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-06-09T13:55:10.054+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-06-09T13:55:10.147+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SecurityManager: Changing view acls to: spark
+[2026-06-09T13:55:10.149+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SecurityManager: Changing modify acls to: spark
+[2026-06-09T13:55:10.153+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SecurityManager: Changing view acls groups to:
+[2026-06-09T13:55:10.155+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SecurityManager: Changing modify acls groups to:
+[2026-06-09T13:55:10.156+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-06-09T13:55:10.594+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO Utils: Successfully started service 'sparkDriver' on port 41415.
+[2026-06-09T13:55:10.678+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SparkEnv: Registering MapOutputTracker
+[2026-06-09T13:55:10.745+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SparkEnv: Registering BlockManagerMaster
+[2026-06-09T13:55:10.802+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-06-09T13:55:10.803+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-06-09T13:55:10.815+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-06-09T13:55:10.861+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-5c115bfe-fd15-4ea1-8492-eec8c81c8847
+[2026-06-09T13:55:10.886+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-06-09T13:55:10.912+0000] {subprocess.py:93} INFO - 26/06/09 13:55:10 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-06-09T13:55:11.132+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-06-09T13:55:11.230+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-06-09T13:55:11.295+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://211b593ea39b:41415/jars/delta-spark_2.12-3.2.0.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.297+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://211b593ea39b:41415/jars/delta-storage-3.2.0.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.300+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://211b593ea39b:41415/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.302+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://211b593ea39b:41415/jars/kafka-clients-3.4.1.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.305+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://211b593ea39b:41415/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.307+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://211b593ea39b:41415/jars/commons-pool2-2.11.1.jar with timestamp 1781013309888
+[2026-06-09T13:55:11.466+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-06-09T13:55:11.549+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.4:7077 after 47 ms (0 ms spent in bootstraps)
+[2026-06-09T13:55:11.701+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260609135511-0045
+[2026-06-09T13:55:11.704+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609135511-0045/0 on worker-20260608131402-172.18.0.5-38399 (172.18.0.5:38399) with 1 core(s)
+[2026-06-09T13:55:11.717+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609135511-0045/0 on hostPort 172.18.0.5:38399 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:55:11.721+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609135511-0045/1 on worker-20260608131402-172.18.0.5-38399 (172.18.0.5:38399) with 1 core(s)
+[2026-06-09T13:55:11.722+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609135511-0045/1 on hostPort 172.18.0.5:38399 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:55:11.723+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260609135511-0045/2 on worker-20260608131402-172.18.0.6-44005 (172.18.0.6:44005) with 1 core(s)
+[2026-06-09T13:55:11.725+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneSchedulerBackend: Granted executor ID app-20260609135511-0045/2 on hostPort 172.18.0.6:44005 with 1 core(s), 512.0 MiB RAM
+[2026-06-09T13:55:11.755+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34779.
+[2026-06-09T13:55:11.757+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO NettyBlockTransferService: Server created on 211b593ea39b:34779
+[2026-06-09T13:55:11.764+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-06-09T13:55:11.792+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 211b593ea39b, 34779, None)
+[2026-06-09T13:55:11.815+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO BlockManagerMasterEndpoint: Registering block manager 211b593ea39b:34779 with 434.4 MiB RAM, BlockManagerId(driver, 211b593ea39b, 34779, None)
+[2026-06-09T13:55:11.834+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 211b593ea39b, 34779, None)
+[2026-06-09T13:55:11.845+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 211b593ea39b, 34779, None)
+[2026-06-09T13:55:11.879+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609135511-0045/0 is now RUNNING
+[2026-06-09T13:55:11.886+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609135511-0045/1 is now RUNNING
+[2026-06-09T13:55:11.918+0000] {subprocess.py:93} INFO - 26/06/09 13:55:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260609135511-0045/2 is now RUNNING
+[2026-06-09T13:55:12.635+0000] {subprocess.py:93} INFO - 26/06/09 13:55:12 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-06-09T13:55:13.576+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-06-09T13:55:42.974+0000] {subprocess.py:93} INFO - 26/06/09 13:55:42 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:55:43.272+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-06-09T13:55:46.133+0000] {subprocess.py:93} INFO - 26/06/09 13:55:46 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:55:46.326+0000] {subprocess.py:93} INFO - Starting stream: products -> /opt/data/bronze/products
+[2026-06-09T13:55:49.347+0000] {subprocess.py:93} INFO - 26/06/09 13:55:49 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-06-09T13:55:51.906+0000] {subprocess.py:93} INFO - 26/06/09 13:55:51 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-06-09T13:57:03.295+0000] {subprocess.py:93} INFO - 26/06/09 13:57:03 WARN Dispatcher: Message RequestMessage(172.18.0.5:36052, NettyRpcEndpointRef(spark://CoarseGrainedScheduler@211b593ea39b:41415), StatusUpdate(1,278,FINISHED,org.apache.spark.util.SerializableBuffer@28279ac0,1,Map())) dropped due to sparkEnv is stopped. Could not find CoarseGrainedScheduler.
+[2026-06-09T13:57:04.007+0000] {subprocess.py:93} INFO - 26/06/09 13:57:04 WARN DeltaLog: Error when writing checkpoint-related files
+[2026-06-09T13:57:04.010+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Job 15 cancelled because SparkContext was shut down
+[2026-06-09T13:57:04.011+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1253)
+[2026-06-09T13:57:04.012+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.013+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+[2026-06-09T13:57:04.014+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.015+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:3087)
+[2026-06-09T13:57:04.019+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+[2026-06-09T13:57:04.020+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.021+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.022+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.023+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+[2026-06-09T13:57:04.024+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.024+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+[2026-06-09T13:57:04.025+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+[2026-06-09T13:57:04.026+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:686)
+[2026-06-09T13:57:04.027+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+[2026-06-09T13:57:04.028+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.029+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.029+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+[2026-06-09T13:57:04.030+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.031+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.032+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213)
+[2026-06-09T13:57:04.032+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.033+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+[2026-06-09T13:57:04.034+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+[2026-06-09T13:57:04.035+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+[2026-06-09T13:57:04.036+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-06-09T13:57:04.037+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-06-09T13:57:04.038+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-06-09T13:57:04.039+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2026-06-09T13:57:04.040+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+[2026-06-09T13:57:04.043+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+[2026-06-09T13:57:04.044+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+[2026-06-09T13:57:04.045+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2463)
+[2026-06-09T13:57:04.046+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1049)
+[2026-06-09T13:57:04.047+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2026-06-09T13:57:04.048+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2026-06-09T13:57:04.048+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2026-06-09T13:57:04.049+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.collect(RDD.scala:1048)
+[2026-06-09T13:57:04.050+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints$.executeFinalCheckpointFiles$1(Checkpoints.scala:604)
+[2026-06-09T13:57:04.051+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints$.$anonfun$writeCheckpoint$10(Checkpoints.scala:669)
+[2026-06-09T13:57:04.052+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.053+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.055+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.057+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.058+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.060+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints$.$anonfun$writeCheckpoint$1(Checkpoints.scala:669)
+[2026-06-09T13:57:04.063+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.066+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.069+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints$.recordFrameProfile(Checkpoints.scala:489)
+[2026-06-09T13:57:04.073+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints$.writeCheckpoint(Checkpoints.scala:519)
+[2026-06-09T13:57:04.075+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.writeCheckpointFiles(Checkpoints.scala:364)
+[2026-06-09T13:57:04.076+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.writeCheckpointFiles$(Checkpoints.scala:348)
+[2026-06-09T13:57:04.077+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.writeCheckpointFiles(DeltaLog.scala:74)
+[2026-06-09T13:57:04.078+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.checkpointAndCleanUpDeltaLog(Checkpoints.scala:326)
+[2026-06-09T13:57:04.080+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.checkpointAndCleanUpDeltaLog$(Checkpoints.scala:324)
+[2026-06-09T13:57:04.082+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.checkpointAndCleanUpDeltaLog(DeltaLog.scala:74)
+[2026-06-09T13:57:04.083+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.$anonfun$checkpoint$2(Checkpoints.scala:305)
+[2026-06-09T13:57:04.084+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.withCheckpointExceptionHandling(Checkpoints.scala:270)
+[2026-06-09T13:57:04.086+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.withCheckpointExceptionHandling$(Checkpoints.scala:267)
+[2026-06-09T13:57:04.087+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.withCheckpointExceptionHandling(DeltaLog.scala:74)
+[2026-06-09T13:57:04.088+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.$anonfun$checkpoint$1(Checkpoints.scala:301)
+[2026-06-09T13:57:04.090+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.095+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.098+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.100+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.recordFrameProfile(DeltaLog.scala:74)
+[2026-06-09T13:57:04.101+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.103+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.107+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.108+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.recordOperation(DeltaLog.scala:74)
+[2026-06-09T13:57:04.110+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.111+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.113+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.116+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.recordDeltaOperation(DeltaLog.scala:74)
+[2026-06-09T13:57:04.121+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.checkpoint(Checkpoints.scala:301)
+[2026-06-09T13:57:04.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Checkpoints.checkpoint$(Checkpoints.scala:299)
+[2026-06-09T13:57:04.129+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.checkpoint(DeltaLog.scala:74)
+[2026-06-09T13:57:04.131+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.hooks.CheckpointHook$.run(CheckpointHook.scala:43)
+[2026-06-09T13:57:04.135+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.runPostCommitHook(OptimisticTransaction.scala:2250)
+[2026-06-09T13:57:04.138+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.runPostCommitHook$(OptimisticTransaction.scala:2244)
+[2026-06-09T13:57:04.141+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.runPostCommitHook(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.143+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$runPostCommitHooks$2(OptimisticTransaction.scala:2238)
+[2026-06-09T13:57:04.144+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$runPostCommitHooks$2$adapted(OptimisticTransaction.scala:2238)
+[2026-06-09T13:57:04.145+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2026-06-09T13:57:04.147+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2026-06-09T13:57:04.148+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2026-06-09T13:57:04.154+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.runPostCommitHooks(OptimisticTransaction.scala:2238)
+[2026-06-09T13:57:04.158+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.runPostCommitHooks$(OptimisticTransaction.scala:2227)
+[2026-06-09T13:57:04.159+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.runPostCommitHooks(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.160+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$commitImpl$1(OptimisticTransaction.scala:1183)
+[2026-06-09T13:57:04.161+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.162+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.163+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordFrameProfile(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.164+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.165+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.166+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.171+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.173+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.174+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.174+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.175+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordDeltaOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.176+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl(OptimisticTransaction.scala:1077)
+[2026-06-09T13:57:04.180+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl$(OptimisticTransaction.scala:1072)
+[2026-06-09T13:57:04.181+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commitImpl(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.183+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit(OptimisticTransaction.scala:1048)
+[2026-06-09T13:57:04.187+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit$(OptimisticTransaction.scala:1045)
+[2026-06-09T13:57:04.188+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commit(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.$anonfun$commit$1(DeltaSink.scala:86)
+[2026-06-09T13:57:04.196+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcJ$sp.apply(JFunction0$mcJ$sp.java:23)
+[2026-06-09T13:57:04.198+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.timeTakenMs(Utils.scala:552)
+[2026-06-09T13:57:04.199+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.commit(DeltaSink.scala:85)
+[2026-06-09T13:57:04.200+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatchWithStatusImpl(DeltaSink.scala:150)
+[2026-06-09T13:57:04.203+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatch(DeltaSink.scala:97)
+[2026-06-09T13:57:04.205+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$17(MicroBatchExecution.scala:732)
+[2026-06-09T13:57:04.206+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.207+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.208+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.210+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.215+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.218+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$16(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.219+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.222+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.223+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.224+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runBatch(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.225+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:286)
+[2026-06-09T13:57:04.226+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.226+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.228+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.229+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.230+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-06-09T13:57:04.231+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-06-09T13:57:04.234+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-06-09T13:57:04.238+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-06-09T13:57:04.243+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.246+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.247+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-06-09T13:57:04.249+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-06-09T13:57:04.252+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.253+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-06-09T13:57:04.254+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-06-09T13:57:04.255+0000] {subprocess.py:93} INFO - 26/06/09 13:57:04 ERROR MicroBatchExecution: Query [id = 9401f051-375d-4d50-9d98-cc67e7758517, runId = 76a7999f-b724-436e-a770-4f9aaefb2999] terminated with error
+[2026-06-09T13:57:04.256+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Job 12 cancelled because SparkContext was shut down
+[2026-06-09T13:57:04.257+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1253)
+[2026-06-09T13:57:04.258+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.259+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+[2026-06-09T13:57:04.260+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.262+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:3087)
+[2026-06-09T13:57:04.263+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+[2026-06-09T13:57:04.265+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.266+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.267+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.268+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+[2026-06-09T13:57:04.269+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.270+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+[2026-06-09T13:57:04.270+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+[2026-06-09T13:57:04.272+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:686)
+[2026-06-09T13:57:04.273+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+[2026-06-09T13:57:04.274+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.276+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.277+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+[2026-06-09T13:57:04.278+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.278+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.279+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213)
+[2026-06-09T13:57:04.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.283+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+[2026-06-09T13:57:04.284+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+[2026-06-09T13:57:04.291+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+[2026-06-09T13:57:04.292+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-06-09T13:57:04.293+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-06-09T13:57:04.295+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-06-09T13:57:04.296+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2026-06-09T13:57:04.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+[2026-06-09T13:57:04.298+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+[2026-06-09T13:57:04.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+[2026-06-09T13:57:04.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2463)
+[2026-06-09T13:57:04.304+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1049)
+[2026-06-09T13:57:04.305+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2026-06-09T13:57:04.306+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2026-06-09T13:57:04.307+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2026-06-09T13:57:04.308+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.collect(RDD.scala:1048)
+[2026-06-09T13:57:04.309+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:448)
+[2026-06-09T13:57:04.310+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4332)
+[2026-06-09T13:57:04.310+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3314)
+[2026-06-09T13:57:04.312+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+[2026-06-09T13:57:04.313+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2026-06-09T13:57:04.314+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+[2026-06-09T13:57:04.319+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.320+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.324+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.325+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.326+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.327+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+[2026-06-09T13:57:04.328+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.head(Dataset.scala:3314)
+[2026-06-09T13:57:04.331+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.head(Dataset.scala:3321)
+[2026-06-09T13:57:04.332+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.first(Dataset.scala:3328)
+[2026-06-09T13:57:04.333+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$extractComputedState$1(SnapshotState.scala:130)
+[2026-06-09T13:57:04.334+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.335+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.336+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.recordFrameProfile(Snapshot.scala:75)
+[2026-06-09T13:57:04.338+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.extractComputedState(SnapshotState.scala:127)
+[2026-06-09T13:57:04.339+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.extractComputedState$(SnapshotState.scala:126)
+[2026-06-09T13:57:04.340+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.extractComputedState(Snapshot.scala:75)
+[2026-06-09T13:57:04.342+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$computedState$2(SnapshotState.scala:80)
+[2026-06-09T13:57:04.342+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.344+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.345+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.recordFrameProfile(Snapshot.scala:75)
+[2026-06-09T13:57:04.346+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$computedState$1(SnapshotState.scala:78)
+[2026-06-09T13:57:04.347+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withJobDescription(DeltaProgressReporter.scala:53)
+[2026-06-09T13:57:04.349+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withStatusCode(DeltaProgressReporter.scala:32)
+[2026-06-09T13:57:04.350+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withStatusCode$(DeltaProgressReporter.scala:27)
+[2026-06-09T13:57:04.351+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.withStatusCode(Snapshot.scala:75)
+[2026-06-09T13:57:04.353+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.computedState(SnapshotState.scala:78)
+[2026-06-09T13:57:04.355+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.computedState$(SnapshotState.scala:76)
+[2026-06-09T13:57:04.356+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.computedState$lzycompute(Snapshot.scala:75)
+[2026-06-09T13:57:04.359+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.computedState(Snapshot.scala:75)
+[2026-06-09T13:57:04.360+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.numOfFiles(SnapshotState.scala:159)
+[2026-06-09T13:57:04.361+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.numOfFiles$(SnapshotState.scala:159)
+[2026-06-09T13:57:04.362+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.numOfFiles(Snapshot.scala:75)
+[2026-06-09T13:57:04.364+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommit(OptimisticTransaction.scala:1984)
+[2026-06-09T13:57:04.365+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommit$(OptimisticTransaction.scala:1902)
+[2026-06-09T13:57:04.366+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.doCommit(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.367+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$3(OptimisticTransaction.scala:1848)
+[2026-06-09T13:57:04.368+0000] {subprocess.py:93} INFO - 	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:158)
+[2026-06-09T13:57:04.369+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$2(OptimisticTransaction.scala:1845)
+[2026-06-09T13:57:04.370+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.372+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.373+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.374+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordFrameProfile(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.376+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.378+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.379+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.380+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.381+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.383+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.385+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordDeltaOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$1(OptimisticTransaction.scala:1845)
+[2026-06-09T13:57:04.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly(SnapshotManagement.scala:78)
+[2026-06-09T13:57:04.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly$(SnapshotManagement.scala:75)
+[2026-06-09T13:57:04.390+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.withSnapshotLockInterruptibly(DeltaLog.scala:74)
+[2026-06-09T13:57:04.391+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.lockCommitIfEnabled(OptimisticTransaction.scala:1815)
+[2026-06-09T13:57:04.392+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommitRetryIteratively(OptimisticTransaction.scala:1833)
+[2026-06-09T13:57:04.393+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommitRetryIteratively$(OptimisticTransaction.scala:1829)
+[2026-06-09T13:57:04.395+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.doCommitRetryIteratively(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.397+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.liftedTree1$1(OptimisticTransaction.scala:1168)
+[2026-06-09T13:57:04.398+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$commitImpl$1(OptimisticTransaction.scala:1080)
+[2026-06-09T13:57:04.398+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.399+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.400+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordFrameProfile(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.401+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.402+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.403+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.405+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.406+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.407+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.408+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.409+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordDeltaOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.410+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl(OptimisticTransaction.scala:1077)
+[2026-06-09T13:57:04.411+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl$(OptimisticTransaction.scala:1072)
+[2026-06-09T13:57:04.412+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commitImpl(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.413+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit(OptimisticTransaction.scala:1048)
+[2026-06-09T13:57:04.415+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit$(OptimisticTransaction.scala:1045)
+[2026-06-09T13:57:04.418+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commit(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.419+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.$anonfun$commit$1(DeltaSink.scala:86)
+[2026-06-09T13:57:04.421+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcJ$sp.apply(JFunction0$mcJ$sp.java:23)
+[2026-06-09T13:57:04.422+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.timeTakenMs(Utils.scala:552)
+[2026-06-09T13:57:04.423+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.commit(DeltaSink.scala:85)
+[2026-06-09T13:57:04.424+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatchWithStatusImpl(DeltaSink.scala:150)
+[2026-06-09T13:57:04.425+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatch(DeltaSink.scala:97)
+[2026-06-09T13:57:04.426+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$17(MicroBatchExecution.scala:732)
+[2026-06-09T13:57:04.427+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.428+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.429+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.429+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.430+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.432+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$16(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.433+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.434+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.435+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.436+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runBatch(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.437+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:286)
+[2026-06-09T13:57:04.439+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.440+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.441+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.442+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.443+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-06-09T13:57:04.444+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-06-09T13:57:04.445+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-06-09T13:57:04.446+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-06-09T13:57:04.447+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.448+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.449+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-06-09T13:57:04.450+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-06-09T13:57:04.451+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.452+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-06-09T13:57:04.454+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-06-09T13:57:04.455+0000] {subprocess.py:93} INFO - 26/06/09 13:57:04 ERROR MicroBatchExecution: Query [id = 247c4699-5aa5-4c31-b40c-9d642c75444d, runId = 8983920c-2609-4309-ad7d-c2ca0bd1035a] terminated with error
+[2026-06-09T13:57:04.457+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Job 14 cancelled because SparkContext was shut down
+[2026-06-09T13:57:04.460+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1253)
+[2026-06-09T13:57:04.461+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.462+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+[2026-06-09T13:57:04.462+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1251)
+[2026-06-09T13:57:04.464+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:3087)
+[2026-06-09T13:57:04.465+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+[2026-06-09T13:57:04.467+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.471+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.475+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2973)
+[2026-06-09T13:57:04.478+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+[2026-06-09T13:57:04.479+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-06-09T13:57:04.481+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+[2026-06-09T13:57:04.482+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+[2026-06-09T13:57:04.483+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:686)
+[2026-06-09T13:57:04.484+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+[2026-06-09T13:57:04.486+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.487+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.488+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+[2026-06-09T13:57:04.489+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.491+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.492+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213)
+[2026-06-09T13:57:04.493+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+[2026-06-09T13:57:04.494+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+[2026-06-09T13:57:04.495+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+[2026-06-09T13:57:04.497+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+[2026-06-09T13:57:04.504+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-06-09T13:57:04.506+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-06-09T13:57:04.508+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-06-09T13:57:04.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2026-06-09T13:57:04.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+[2026-06-09T13:57:04.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+[2026-06-09T13:57:04.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+[2026-06-09T13:57:04.514+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2463)
+[2026-06-09T13:57:04.515+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1049)
+[2026-06-09T13:57:04.516+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2026-06-09T13:57:04.520+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2026-06-09T13:57:04.524+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2026-06-09T13:57:04.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.collect(RDD.scala:1048)
+[2026-06-09T13:57:04.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:448)
+[2026-06-09T13:57:04.529+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4332)
+[2026-06-09T13:57:04.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3314)
+[2026-06-09T13:57:04.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+[2026-06-09T13:57:04.534+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2026-06-09T13:57:04.536+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+[2026-06-09T13:57:04.539+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.541+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.543+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.547+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.548+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.549+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+[2026-06-09T13:57:04.550+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.head(Dataset.scala:3314)
+[2026-06-09T13:57:04.551+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.head(Dataset.scala:3321)
+[2026-06-09T13:57:04.553+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.first(Dataset.scala:3328)
+[2026-06-09T13:57:04.554+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$extractComputedState$1(SnapshotState.scala:130)
+[2026-06-09T13:57:04.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.560+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.562+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.recordFrameProfile(Snapshot.scala:75)
+[2026-06-09T13:57:04.563+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.extractComputedState(SnapshotState.scala:127)
+[2026-06-09T13:57:04.564+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.extractComputedState$(SnapshotState.scala:126)
+[2026-06-09T13:57:04.565+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.extractComputedState(Snapshot.scala:75)
+[2026-06-09T13:57:04.566+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$computedState$2(SnapshotState.scala:80)
+[2026-06-09T13:57:04.568+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.569+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.570+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.recordFrameProfile(Snapshot.scala:75)
+[2026-06-09T13:57:04.571+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.$anonfun$computedState$1(SnapshotState.scala:78)
+[2026-06-09T13:57:04.572+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withJobDescription(DeltaProgressReporter.scala:53)
+[2026-06-09T13:57:04.574+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withStatusCode(DeltaProgressReporter.scala:32)
+[2026-06-09T13:57:04.575+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.util.DeltaProgressReporter.withStatusCode$(DeltaProgressReporter.scala:27)
+[2026-06-09T13:57:04.576+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.withStatusCode(Snapshot.scala:75)
+[2026-06-09T13:57:04.577+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.computedState(SnapshotState.scala:78)
+[2026-06-09T13:57:04.580+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.computedState$(SnapshotState.scala:76)
+[2026-06-09T13:57:04.581+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.computedState$lzycompute(Snapshot.scala:75)
+[2026-06-09T13:57:04.583+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.computedState(Snapshot.scala:75)
+[2026-06-09T13:57:04.584+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.numOfFiles(SnapshotState.scala:159)
+[2026-06-09T13:57:04.585+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotStateManager.numOfFiles$(SnapshotState.scala:159)
+[2026-06-09T13:57:04.586+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.numOfFiles(Snapshot.scala:75)
+[2026-06-09T13:57:04.587+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommit(OptimisticTransaction.scala:1984)
+[2026-06-09T13:57:04.588+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommit$(OptimisticTransaction.scala:1902)
+[2026-06-09T13:57:04.589+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.doCommit(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.590+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$3(OptimisticTransaction.scala:1848)
+[2026-06-09T13:57:04.591+0000] {subprocess.py:93} INFO - 	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:158)
+[2026-06-09T13:57:04.592+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$2(OptimisticTransaction.scala:1845)
+[2026-06-09T13:57:04.593+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.594+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.596+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.597+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordFrameProfile(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.600+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.602+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.604+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.605+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.607+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.608+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.609+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.610+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordDeltaOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.612+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$doCommitRetryIteratively$1(OptimisticTransaction.scala:1845)
+[2026-06-09T13:57:04.613+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly(SnapshotManagement.scala:78)
+[2026-06-09T13:57:04.616+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly$(SnapshotManagement.scala:75)
+[2026-06-09T13:57:04.617+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.withSnapshotLockInterruptibly(DeltaLog.scala:74)
+[2026-06-09T13:57:04.618+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.lockCommitIfEnabled(OptimisticTransaction.scala:1815)
+[2026-06-09T13:57:04.619+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommitRetryIteratively(OptimisticTransaction.scala:1833)
+[2026-06-09T13:57:04.620+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.doCommitRetryIteratively$(OptimisticTransaction.scala:1829)
+[2026-06-09T13:57:04.621+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.doCommitRetryIteratively(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.622+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.liftedTree1$1(OptimisticTransaction.scala:1168)
+[2026-06-09T13:57:04.622+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.$anonfun$commitImpl$1(OptimisticTransaction.scala:1080)
+[2026-06-09T13:57:04.623+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-06-09T13:57:04.624+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-06-09T13:57:04.625+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordFrameProfile(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.625+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-06-09T13:57:04.626+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-06-09T13:57:04.628+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-06-09T13:57:04.629+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.630+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-06-09T13:57:04.630+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-06-09T13:57:04.631+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-06-09T13:57:04.632+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.recordDeltaOperation(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.632+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl(OptimisticTransaction.scala:1077)
+[2026-06-09T13:57:04.633+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commitImpl$(OptimisticTransaction.scala:1072)
+[2026-06-09T13:57:04.633+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commitImpl(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.634+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit(OptimisticTransaction.scala:1048)
+[2026-06-09T13:57:04.635+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransactionImpl.commit$(OptimisticTransaction.scala:1045)
+[2026-06-09T13:57:04.635+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.OptimisticTransaction.commit(OptimisticTransaction.scala:147)
+[2026-06-09T13:57:04.636+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.$anonfun$commit$1(DeltaSink.scala:86)
+[2026-06-09T13:57:04.637+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcJ$sp.apply(JFunction0$mcJ$sp.java:23)
+[2026-06-09T13:57:04.637+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.timeTakenMs(Utils.scala:552)
+[2026-06-09T13:57:04.638+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink$PendingTxn.commit(DeltaSink.scala:85)
+[2026-06-09T13:57:04.639+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatchWithStatusImpl(DeltaSink.scala:150)
+[2026-06-09T13:57:04.639+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.addBatch(DeltaSink.scala:97)
+[2026-06-09T13:57:04.640+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$17(MicroBatchExecution.scala:732)
+[2026-06-09T13:57:04.640+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-06-09T13:57:04.641+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-06-09T13:57:04.642+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-06-09T13:57:04.642+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.643+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-06-09T13:57:04.643+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$16(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.644+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.644+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.645+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.645+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runBatch(MicroBatchExecution.scala:729)
+[2026-06-09T13:57:04.646+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:286)
+[2026-06-09T13:57:04.646+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.647+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-06-09T13:57:04.647+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-06-09T13:57:04.648+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-06-09T13:57:04.648+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-06-09T13:57:04.649+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-06-09T13:57:04.649+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-06-09T13:57:04.649+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-06-09T13:57:04.650+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.651+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-06-09T13:57:04.651+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-06-09T13:57:04.652+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-06-09T13:57:04.652+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.653+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-06-09T13:57:04.653+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-06-09T13:57:04.654+0000] {subprocess.py:93} INFO - 26/06/09 13:57:04 WARN NettyRpcEnv: Ignored failure: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@16193de8[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@3acd1079[Wrapped task = org.apache.spark.rpc.netty.NettyRpcEnv$$anon$1@28ab3f02]] rejected from java.util.concurrent.ScheduledThreadPoolExecutor@11b456c[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+[2026-06-09T13:57:04.654+0000] {subprocess.py:93} INFO - Exception in thread "stream execution thread for [id = 9401f051-375d-4d50-9d98-cc67e7758517, runId = 76a7999f-b724-436e-a770-4f9aaefb2999]" 26/06/09 13:57:04 WARN NettyRpcEnv: Ignored failure: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@13d29979[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@b79743c[Wrapped task = org.apache.spark.rpc.netty.NettyRpcEnv$$anon$1@7fe35d55]] rejected from java.util.concurrent.ScheduledThreadPoolExecutor@11b456c[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+[2026-06-09T13:57:04.655+0000] {subprocess.py:93} INFO - Exception in thread "stream execution thread for [id = 247c4699-5aa5-4c31-b40c-9d642c75444d, runId = 8983920c-2609-4309-ad7d-c2ca0bd1035a]" org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-06-09T13:57:04.655+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:56)
+[2026-06-09T13:57:04.656+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:310)
+[2026-06-09T13:57:04.656+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-06-09T13:57:04.658+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-06-09T13:57:04.661+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-06-09T13:57:04.662+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.state.StateStoreCoordinatorRef.deactivateInstances(StateStoreCoordinator.scala:119)
+[2026-06-09T13:57:04.663+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.StreamingQueryManager.notifyQueryTermination(StreamingQueryManager.scala:426)
+[2026-06-09T13:57:04.663+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$3(StreamExecution.scala:360)
+[2026-06-09T13:57:04.664+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.665+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.UninterruptibleThread.runUninterruptibly(UninterruptibleThread.scala:77)
+[2026-06-09T13:57:04.665+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:340)
+[2026-06-09T13:57:04.666+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-06-09T13:57:04.666+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.667+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-06-09T13:57:04.667+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-06-09T13:57:04.668+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEnvStoppedException: RpcEnv already stopped.
+[2026-06-09T13:57:04.668+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:176)
+[2026-06-09T13:57:04.669+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postLocalMessage(Dispatcher.scala:144)
+[2026-06-09T13:57:04.669+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.askAbortable(NettyRpcEnv.scala:242)
+[2026-06-09T13:57:04.670+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.askAbortable(NettyRpcEnv.scala:554)
+[2026-06-09T13:57:04.670+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.ask(NettyRpcEnv.scala:558)
+[2026-06-09T13:57:04.671+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:100)
+[2026-06-09T13:57:04.671+0000] {subprocess.py:93} INFO - 	... 11 more
+[2026-06-09T13:57:04.672+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-06-09T13:57:04.672+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:56)
+[2026-06-09T13:57:04.673+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:310)
+[2026-06-09T13:57:04.674+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-06-09T13:57:04.674+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-06-09T13:57:04.674+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-06-09T13:57:04.675+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.state.StateStoreCoordinatorRef.deactivateInstances(StateStoreCoordinator.scala:119)
+[2026-06-09T13:57:04.676+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.StreamingQueryManager.notifyQueryTermination(StreamingQueryManager.scala:426)
+[2026-06-09T13:57:04.676+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$3(StreamExecution.scala:360)
+[2026-06-09T13:57:04.676+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.677+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.UninterruptibleThread.runUninterruptibly(UninterruptibleThread.scala:77)
+[2026-06-09T13:57:04.677+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:340)
+[2026-06-09T13:57:04.678+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-06-09T13:57:04.678+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-06-09T13:57:04.679+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-06-09T13:57:04.679+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-06-09T13:57:04.680+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEnvStoppedException: RpcEnv already stopped.
+[2026-06-09T13:57:04.680+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:176)
+[2026-06-09T13:57:04.681+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postLocalMessage(Dispatcher.scala:144)
+[2026-06-09T13:57:04.681+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.askAbortable(NettyRpcEnv.scala:242)
+[2026-06-09T13:57:04.682+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.askAbortable(NettyRpcEnv.scala:554)
+[2026-06-09T13:57:04.682+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.ask(NettyRpcEnv.scala:558)
+[2026-06-09T13:57:04.683+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:100)
+[2026-06-09T13:57:04.684+0000] {subprocess.py:93} INFO - 	... 11 more
+[2026-06-09T13:57:05.601+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-06-09T13:57:05.608+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-09T13:57:05.642+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-06-09T13:57:05.658+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=e-commerce_kafka_streaming_pipeline_v10, task_id=run_bronze, execution_date=20260609T120000, start_date=20260609T135502, end_date=20260609T135705
+[2026-06-09T13:57:05.698+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 107 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 5362)
+[2026-06-09T13:57:05.725+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-09T13:57:05.807+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-09T13:57:05.821+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

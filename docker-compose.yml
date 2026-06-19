@@ -1,0 +1,312 @@
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.0
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'false'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./data:/opt/data
+    - ./checkpoints:/opt/checkpoints
+    - ./pipelines:/opt/pipelines
+    - ./jars:/opt/jars
+    # FIX: Mount requirements.txt so pip install works reliably
+    - ./requirements.txt:/opt/airflow/requirements.txt
+  depends_on:
+    postgres:
+      condition: service_healthy
+    broker:
+      condition: service_healthy
+  networks:
+    - sdp-net
+
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: sdp-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2185:2181"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sdp-net
+
+  broker:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: sdp-broker
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    ports:
+      - "29095:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:9092,PLAINTEXT_HOST://localhost:29095
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    healthcheck:
+      test: ["CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+    networks:
+      - sdp-net
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: sdp-kafka-ui
+    depends_on:
+      broker:
+        condition: service_healthy
+    ports:
+      - "8087:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:9092
+    networks:
+      - sdp-net
+
+  spark-master:
+    image: apache/spark:3.5.1
+    container_name: sdp-spark-master
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.master.Master
+    environment:
+      - SPARK_MASTER_HOST=sdp-spark-master
+    ports:
+      - "9090:8080"
+      - "7078:7077"
+    volumes:
+      - ./scripts:/opt/scripts
+      - ./data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+    networks:
+      - sdp-net
+
+  spark-worker:
+    image: apache/spark:3.5.1
+    container_name: sdp-spark-worker
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.worker.Worker
+      spark://sdp-spark-master:7077
+    environment:
+      - SPARK_WORKER_MEMORY=4g
+      - SPARK_WORKER_CORES=4
+    depends_on:
+      - spark-master
+    volumes:
+      - ./scripts:/opt/scripts
+      - ./data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+    networks:
+      - sdp-net
+
+  spark-worker-2:
+    image: apache/spark:3.5.1
+    container_name: sdp-spark-worker-2
+    command: >
+      /opt/spark/bin/spark-class
+      org.apache.spark.deploy.worker.Worker
+      spark://sdp-spark-master:7077
+    environment:
+      - SPARK_WORKER_MEMORY=4g
+      - SPARK_WORKER_CORES=4
+    depends_on:
+      - spark-master
+    volumes:
+      - ./pipelines:/opt/pipelines
+      - ./data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+      - ./jars:/opt/jars
+    networks:
+      - sdp-net
+
+  # sdp-bronze:
+  #   image: apache/spark:3.5.1
+  #   container_name: sdp-bronze-runner
+  #   depends_on:
+  #     - spark-master
+  #     - broker
+  #   command: >
+  #     /opt/spark/bin/spark-submit
+  #     --master spark://sdp-spark-master:7077
+  #     --executor-cores 1
+  #     --executor-memory 512m
+  #     --total-executor-cores 3
+  #     --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar
+  #     --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
+  #     --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+  #     /opt/pipelines/bronze_runner.py
+  #   volumes:
+  #     - ./pipelines:/opt/pipelines
+  #     - ./data:/opt/data
+  #     - ./checkpoints:/opt/checkpoints
+  #     - ./jars:/opt/jars
+  #   networks:
+  #     - sdp-net
+
+  # sdp-silver:
+  #   image: apache/spark:3.5.1
+  #   container_name: sdp-silver-runner
+  #   depends_on:
+  #     - spark-master
+  #     - broker
+  #   restart: on-failure
+  #   command: >
+  #     /opt/spark/bin/spark-submit
+  #     --master spark://sdp-spark-master:7077
+  #     --executor-cores 1
+  #     --executor-memory 512m
+  #     --total-executor-cores 3
+  #     --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar
+  #     --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
+  #     --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+  #     /opt/pipelines/silver_runner.py
+  #   volumes:
+  #     - ./pipelines:/opt/pipelines
+  #     - ./data:/opt/data
+  #     - ./checkpoints:/opt/checkpoints
+  #     - ./jars:/opt/jars
+  #   networks:
+  #     - sdp-net
+
+  # sdp-gold:
+  #   image: apache/spark:3.5.1
+  #   container_name: sdp-gold-runner
+  #   depends_on:
+  #     - spark-master
+  #   command: >
+  #     /opt/spark/bin/spark-submit
+  #     --master spark://sdp-spark-master:7077
+  #     --executor-cores 1
+  #     --executor-memory 512m
+  #     --total-executor-cores 2
+  #     --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar
+  #     --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
+  #     --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+  #     /opt/pipelines/gold_runner.py
+  #   volumes:
+  #     - ./pipelines:/opt/pipelines
+  #     - ./data:/opt/data
+  #     - ./jars:/opt/jars
+  #   networks:
+  #     - sdp-net
+
+
+  # ── Airflow ─────────────────────────────────────────────────────────────────
+
+  postgres:
+    image: postgres:13
+    container_name: postgres_new
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres-airflow:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sdp-net
+
+  airflow-init:
+    image: apache/airflow:2.9.0
+    container_name: airflow-init_new
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./requirements.txt:/opt/airflow/requirements.txt
+    command: >
+      bash -c "
+        pip install -r /opt/airflow/requirements.txt &&
+        airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Admin --lastname Admin --role Admin --email admin@example.com"
+    
+    networks:
+      - sdp-net
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow-scheduler_new
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      broker:
+        condition: service_healthy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./pipelines:/opt/pipelines
+      - ./scripts:/opt/scripts
+      - ./data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+      - ./requirements.txt:/opt/airflow/requirements.txt
+    # FIX: pip install BEFORE starting schedul  er
+    command: bash -c "pip install -r /opt/airflow/requirements.txt && airflow scheduler"
+    networks:
+      - sdp-net
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow-webserver_new
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      broker:
+        condition: service_healthy
+    ports:
+      - "8082:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./pipelines:/opt/pipelines
+      - ./scripts:/opt/scripts
+      - ./data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+      - ./requirements.txt:/opt/airflow/requirements.txt
+    # FIX: pip install BEFORE starting webserver
+    command: bash -c "pip install -r /opt/airflow/requirements.txt && airflow webserver"
+    networks:
+      - sdp-net
+
+
+volumes:
+  postgres-airflow:
+
+networks:
+  sdp-net:
+    driver: bridge
