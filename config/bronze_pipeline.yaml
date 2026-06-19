@@ -1,0 +1,16 @@
+pipelines:
+
+  - name: bronze_orders
+    topic: orders
+    target_path: /opt/data/bronze/orders
+    checkpoint_path: /opt/checkpoints/orders
+
+  - name: bronze_customers
+    topic: customers
+    target_path: /opt/data/bronze/customers
+    checkpoint_path: /opt/checkpoints/customers
+
+  - name: bronze_products
+    topic: products
+    target_path: /opt/data/bronze/products
+    checkpoint_path: /opt/checkpoints/products
