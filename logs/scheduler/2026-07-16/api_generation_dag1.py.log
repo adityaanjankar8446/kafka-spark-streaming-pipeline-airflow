@@ -1,0 +1,26 @@
+[2026-07-16T05:36:39.945+0000] {processor.py:161} INFO - Started process (PID=652) to work on /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:36:39.981+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/api_generation_dag1.py for tasks to queue
+[2026-07-16T05:36:39.994+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:39.992+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:36:40.446+0000] {processor.py:840} INFO - DAG(s) 'api_generation_dag1' retrieved from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:36:41.209+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:41.208+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:36:41.876+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:41.875+0000] {dag.py:3954} INFO - Setting next_dagrun for api_generation_dag1 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:36:42.256+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/api_generation_dag1.py took 2.418 seconds
+[2026-07-16T05:37:13.252+0000] {processor.py:161} INFO - Started process (PID=732) to work on /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:13.305+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/api_generation_dag1.py for tasks to queue
+[2026-07-16T05:37:13.379+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:13.377+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:13.726+0000] {processor.py:840} INFO - DAG(s) 'api_generation_dag1' retrieved from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:14.156+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:14.155+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:14.459+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:14.453+0000] {dag.py:3954} INFO - Setting next_dagrun for api_generation_dag1 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:14.715+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/api_generation_dag1.py took 1.802 seconds
+[2026-07-16T05:37:45.726+0000] {processor.py:161} INFO - Started process (PID=757) to work on /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:45.728+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/api_generation_dag1.py for tasks to queue
+[2026-07-16T05:37:45.738+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:45.737+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:45.822+0000] {processor.py:840} INFO - DAG(s) 'api_generation_dag1' retrieved from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T05:37:46.164+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:46.164+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:46.412+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:46.407+0000] {dag.py:3954} INFO - Setting next_dagrun for api_generation_dag1 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:46.535+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/api_generation_dag1.py took 0.834 seconds
+[2026-07-16T06:05:14.561+0000] {processor.py:161} INFO - Started process (PID=780) to work on /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T06:20:51.508+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/api_generation_dag1.py for tasks to queue
+[2026-07-16T06:20:55.160+0000] {logging_mixin.py:188} INFO - [2026-07-16T06:20:54.722+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T06:20:56.265+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/api_generation_dag1.py
+[2026-07-16T06:21:11.956+0000] {logging_mixin.py:188} INFO - [2026-07-16T06:21:11.954+0000] {process_utils.py:263} INFO - Waiting up to 5 seconds for processes to exit...

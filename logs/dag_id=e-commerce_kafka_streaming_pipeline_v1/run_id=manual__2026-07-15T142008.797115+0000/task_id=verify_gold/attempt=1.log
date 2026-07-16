@@ -1,0 +1,29 @@
+[2026-07-15T15:16:16.429+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-15T15:16:16.534+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.verify_gold manual__2026-07-15T14:20:08.797115+00:00 [queued]>
+[2026-07-15T15:16:16.546+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.verify_gold manual__2026-07-15T14:20:08.797115+00:00 [queued]>
+[2026-07-15T15:16:16.547+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-07-15T15:16:16.569+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): verify_gold> on 2026-07-15 14:20:08.797115+00:00
+[2026-07-15T15:16:16.578+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'verify_gold', 'manual__2026-07-15T14:20:08.797115+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmpsi1rj6fn']
+[2026-07-15T15:16:16.581+0000] {standard_task_runner.py:91} INFO - Job 19: Subtask verify_gold
+[2026-07-15T15:16:16.582+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-15T15:16:16.583+0000] {standard_task_runner.py:63} INFO - Started process 1197 to run task
+[2026-07-15T15:16:16.655+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.verify_gold manual__2026-07-15T14:20:08.797115+00:00 [running]> on host 1491dce99886
+[2026-07-15T15:16:16.765+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='verify_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-07-15T14:20:08.797115+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-15T14:20:08.797115+00:00'
+[2026-07-15T15:16:16.766+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-15T15:16:16.797+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-15T15:16:16.800+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n            echo "=== Gold tables ==="\n            ls -lh /opt/data/gold/ || echo "Gold dir not found"\n            echo "=== Daily Sales rows ==="\n            ls /opt/data/gold/daily_sales/ 2>/dev/null | wc -l || echo "0"\n            echo "Pipeline complete!"\n        ']
+[2026-07-15T15:16:16.814+0000] {subprocess.py:86} INFO - Output:
+[2026-07-15T15:16:16.822+0000] {subprocess.py:93} INFO - === Gold tables ===
+[2026-07-15T15:16:16.849+0000] {subprocess.py:93} INFO - total 0
+[2026-07-15T15:16:16.850+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 185 185 4.0K Jul 15 15:16 customer_orders
+[2026-07-15T15:16:16.851+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 185 185 4.0K Jul 15 15:15 daily_sales
+[2026-07-15T15:16:16.852+0000] {subprocess.py:93} INFO - drwxr-xr-x 1 185 185 4.0K Jul 15 15:15 product_performance
+[2026-07-15T15:16:16.852+0000] {subprocess.py:93} INFO - === Daily Sales rows ===
+[2026-07-15T15:16:16.854+0000] {subprocess.py:93} INFO - 2
+[2026-07-15T15:16:16.855+0000] {subprocess.py:93} INFO - Pipeline complete!
+[2026-07-15T15:16:16.856+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-15T15:16:16.857+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-15T15:16:16.880+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=verify_gold, execution_date=20260715T142008, start_date=20260715T151616, end_date=20260715T151616
+[2026-07-15T15:16:16.923+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-15T15:16:16.937+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-15T15:16:16.940+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

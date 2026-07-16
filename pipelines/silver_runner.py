@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, explode, current_timestamp
 from pyspark.sql.types import *
 import time
+import sys
 
 spark = (
     SparkSession.builder
@@ -167,5 +168,16 @@ for pipe in pipelines:
             time.sleep(15)
     
 
+RUN_SECONDS = 90
+deadline = time.time() + RUN_SECONDS
+
 for q in queries:
-    q.awaitTermination()
+    remaining = max(deadline - time.time(), 1)
+    q.awaitTermination(remaining)   # seconds, shared deadline across all 3 queries
+
+for q in queries:
+    if q.isActive:
+        q.stop()
+
+spark.stop()
+sys.exit(0)

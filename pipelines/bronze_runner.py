@@ -1,6 +1,7 @@
 import signal
 import sys
 from pyspark.sql import SparkSession
+import time
 
 
 spark = (
@@ -70,5 +71,16 @@ for pipe in pipelines:
     queries.append(query)
 
 
+RUN_SECONDS = 90
+deadline = time.time() + RUN_SECONDS
+
 for q in queries:
-    q.awaitTermination()
+    remaining = max(deadline - time.time(), 1)
+    q.awaitTermination(remaining)   # seconds, shared deadline across all 3 queries
+
+for q in queries:
+    if q.isActive:
+        q.stop()
+
+spark.stop()
+sys.exit(0)

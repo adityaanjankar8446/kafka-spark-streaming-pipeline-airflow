@@ -29,9 +29,9 @@ daily_sales = (
     .join(products, "product_id")
     .groupBy("order_date")
     .agg(
-        countDistinct("order_id")            .alias("total_orders"),
+        countDistinct("order_id").alias("total_orders"),
         round(sum(col("price") * col("quantity")), 2).alias("total_revenue"),
-        sum("quantity")                      .alias("total_items_sold"),
+        sum("quantity").alias("total_items_sold"),
     )
     .orderBy("order_date")
 )
@@ -44,9 +44,9 @@ product_performance = (
     .join(products, "product_id")
     .groupBy("product_id", "title", "category")
     .agg(
-        sum("quantity")                             .alias("total_quantity_sold"),
+        sum("quantity").alias("total_quantity_sold"),
         round(sum(col("price") * col("quantity")), 2).alias("total_revenue"),
-        count("order_id")                           .alias("times_ordered"),
+        count("order_id").alias("times_ordered"),
     )
     .orderBy(col("total_revenue").desc())
 )
@@ -57,12 +57,12 @@ product_performance = (
 customer_orders = (
     orders
     .join(products, "product_id")
-    .join(customers, orders.user_id == customers.customer_id)
+    .join(customers, "customer_id")
     .groupBy("customer_id", "first_name", "last_name", "email")
     .agg(
-        countDistinct("order_id")                   .alias("total_orders"),
+        countDistinct("order_id").alias("total_orders"),
         round(sum(col("price") * col("quantity")), 2).alias("total_spent"),
-        sum("quantity")                             .alias("total_items"),
+        sum("quantity").alias("total_items"),
     )
     .orderBy(col("total_spent").desc())
 )

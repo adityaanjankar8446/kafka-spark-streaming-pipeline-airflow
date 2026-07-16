@@ -1,0 +1,96 @@
+[2026-07-15T13:03:59.027+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-15T13:03:59.295+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T11:37:15.628177+00:00 [queued]>
+[2026-07-15T13:03:59.335+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T11:37:15.628177+00:00 [queued]>
+[2026-07-15T13:03:59.338+0000] {taskinstance.py:2303} INFO - Starting attempt 3 of 3
+[2026-07-15T13:03:59.405+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-07-15 11:37:15.628177+00:00
+[2026-07-15T13:03:59.433+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'run_bronze', 'manual__2026-07-15T11:37:15.628177+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmprwizzxyz']
+[2026-07-15T13:03:59.449+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2165) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-15T13:03:59.449+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask run_bronze
+[2026-07-15T13:03:59.454+0000] {standard_task_runner.py:63} INFO - Started process 2166 to run task
+[2026-07-15T13:03:59.633+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T11:37:15.628177+00:00 [running]> on host 6d7ac32de880
+[2026-07-15T13:03:59.940+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-15T11:37:15.628177+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-15T11:37:15.628177+00:00'
+[2026-07-15T13:03:59.977+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-15T13:04:00.177+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-15T13:04:00.188+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 150s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-07-15T13:04:00.252+0000] {subprocess.py:86} INFO - Output:
+[2026-07-15T13:04:06.280+0000] {subprocess.py:93} INFO - 26/07/15 13:04:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-15T13:04:07.832+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO SparkContext: Running Spark version 3.5.1
+[2026-07-15T13:04:07.834+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO SparkContext: OS info Linux, 6.18.33.2-microsoft-standard-WSL2, amd64
+[2026-07-15T13:04:07.836+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO SparkContext: Java version 11.0.22
+[2026-07-15T13:04:07.885+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceUtils: ==============================================================
+[2026-07-15T13:04:07.887+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-07-15T13:04:07.889+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceUtils: ==============================================================
+[2026-07-15T13:04:07.891+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-07-15T13:04:07.934+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-07-15T13:04:07.963+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-07-15T13:04:07.966+0000] {subprocess.py:93} INFO - 26/07/15 13:04:07 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-07-15T13:04:08.066+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SecurityManager: Changing view acls to: spark
+[2026-07-15T13:04:08.068+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SecurityManager: Changing modify acls to: spark
+[2026-07-15T13:04:08.071+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SecurityManager: Changing view acls groups to:
+[2026-07-15T13:04:08.072+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SecurityManager: Changing modify acls groups to:
+[2026-07-15T13:04:08.074+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-07-15T13:04:08.713+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO Utils: Successfully started service 'sparkDriver' on port 46687.
+[2026-07-15T13:04:08.819+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SparkEnv: Registering MapOutputTracker
+[2026-07-15T13:04:08.905+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SparkEnv: Registering BlockManagerMaster
+[2026-07-15T13:04:08.934+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-07-15T13:04:08.937+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-07-15T13:04:08.940+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-07-15T13:04:08.984+0000] {subprocess.py:93} INFO - 26/07/15 13:04:08 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b1d81f3b-21ab-4a8e-b6a1-ea824d036745
+[2026-07-15T13:04:09.005+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-07-15T13:04:09.035+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-07-15T13:04:09.412+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-07-15T13:04:09.646+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-07-15T13:04:09.739+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://cc01c13c49a2:46687/jars/delta-spark_2.12-3.2.0.jar with timestamp 1784120647818
+[2026-07-15T13:04:09.742+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://cc01c13c49a2:46687/jars/delta-storage-3.2.0.jar with timestamp 1784120647818
+[2026-07-15T13:04:09.747+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://cc01c13c49a2:46687/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1784120647818
+[2026-07-15T13:04:09.752+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://cc01c13c49a2:46687/jars/kafka-clients-3.4.1.jar with timestamp 1784120647818
+[2026-07-15T13:04:09.757+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://cc01c13c49a2:46687/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1784120647818
+[2026-07-15T13:04:09.760+0000] {subprocess.py:93} INFO - 26/07/15 13:04:09 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://cc01c13c49a2:46687/jars/commons-pool2-2.11.1.jar with timestamp 1784120647818
+[2026-07-15T13:04:10.013+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-07-15T13:04:10.271+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.2:7077 after 149 ms (0 ms spent in bootstraps)
+[2026-07-15T13:04:10.733+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260715130410-0012
+[2026-07-15T13:04:10.740+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715130410-0012/0 on worker-20260715120445-172.18.0.6-36249 (172.18.0.6:36249) with 1 core(s)
+[2026-07-15T13:04:10.770+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715130410-0012/0 on hostPort 172.18.0.6:36249 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T13:04:10.793+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715130410-0012/1 on worker-20260715120445-172.18.0.6-36249 (172.18.0.6:36249) with 1 core(s)
+[2026-07-15T13:04:10.805+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715130410-0012/1 on hostPort 172.18.0.6:36249 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T13:04:10.816+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715130410-0012/2 on worker-20260715120445-172.18.0.5-42817 (172.18.0.5:42817) with 1 core(s)
+[2026-07-15T13:04:10.820+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715130410-0012/2 on hostPort 172.18.0.5:42817 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T13:04:10.844+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44525.
+[2026-07-15T13:04:10.864+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO NettyBlockTransferService: Server created on cc01c13c49a2:44525
+[2026-07-15T13:04:10.904+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-07-15T13:04:10.914+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, cc01c13c49a2, 44525, None)
+[2026-07-15T13:04:10.937+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO BlockManagerMasterEndpoint: Registering block manager cc01c13c49a2:44525 with 434.4 MiB RAM, BlockManagerId(driver, cc01c13c49a2, 44525, None)
+[2026-07-15T13:04:10.950+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, cc01c13c49a2, 44525, None)
+[2026-07-15T13:04:10.971+0000] {subprocess.py:93} INFO - 26/07/15 13:04:10 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, cc01c13c49a2, 44525, None)
+[2026-07-15T13:04:11.336+0000] {subprocess.py:93} INFO - 26/07/15 13:04:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715130410-0012/1 is now RUNNING
+[2026-07-15T13:04:11.379+0000] {subprocess.py:93} INFO - 26/07/15 13:04:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715130410-0012/0 is now RUNNING
+[2026-07-15T13:04:11.381+0000] {subprocess.py:93} INFO - 26/07/15 13:04:11 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715130410-0012/2 is now RUNNING
+[2026-07-15T13:04:11.918+0000] {subprocess.py:93} INFO - 26/07/15 13:04:11 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-07-15T13:04:12.912+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-07-15T13:04:42.799+0000] {subprocess.py:93} INFO - 26/07/15 13:04:42 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T13:04:43.743+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-07-15T13:25:32.219+0000] {subprocess.py:93} INFO - 26/07/15 13:25:32 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-07-15T13:25:47.741+0000] {subprocess.py:93} INFO - 26/07/15 13:25:47 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T13:25:48.089+0000] {subprocess.py:93} INFO - Starting stream: products -> /opt/data/bronze/products
+[2026-07-15T13:25:53.502+0000] {subprocess.py:93} INFO - 26/07/15 13:25:53 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T13:27:00.704+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-07-15T13:27:00.879+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-15T13:27:01.228+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-07-15T13:27:01.355+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=run_bronze, execution_date=20260715T113715, start_date=20260715T130359, end_date=20260715T132701
+[2026-07-15T13:27:01.672+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 69 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 2166)
+[2026-07-15T13:27:01.769+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-15T13:27:03.526+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-15T13:27:03.617+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

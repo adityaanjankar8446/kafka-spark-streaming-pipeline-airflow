@@ -1,0 +1,21 @@
+[2026-07-16T05:36:42.621+0000] {processor.py:161} INFO - Started process (PID=662) to work on /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:36:42.652+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/gold_dag4.py for tasks to queue
+[2026-07-16T05:36:42.689+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:42.667+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:36:42.897+0000] {processor.py:840} INFO - DAG(s) 'gold_dag4' retrieved from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:36:43.253+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:43.252+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:36:43.532+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:43.521+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dag4 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:36:44.112+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/gold_dag4.py took 1.553 seconds
+[2026-07-16T05:37:15.012+0000] {processor.py:161} INFO - Started process (PID=739) to work on /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:15.015+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/gold_dag4.py for tasks to queue
+[2026-07-16T05:37:15.020+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:15.019+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:15.064+0000] {processor.py:840} INFO - DAG(s) 'gold_dag4' retrieved from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:15.634+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:15.629+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:16.372+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:16.371+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dag4 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:16.811+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/gold_dag4.py took 1.813 seconds
+[2026-07-16T05:37:47.726+0000] {processor.py:161} INFO - Started process (PID=764) to work on /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:47.729+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/gold_dag4.py for tasks to queue
+[2026-07-16T05:37:47.743+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:47.738+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:47.811+0000] {processor.py:840} INFO - DAG(s) 'gold_dag4' retrieved from /opt/airflow/dags/gold_dag4.py
+[2026-07-16T05:37:47.951+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:47.951+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:48.126+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:48.125+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dag4 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:48.204+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/gold_dag4.py took 0.502 seconds

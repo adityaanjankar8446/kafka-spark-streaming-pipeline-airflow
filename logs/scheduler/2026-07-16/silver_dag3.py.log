@@ -1,0 +1,21 @@
+[2026-07-16T05:36:43.859+0000] {processor.py:161} INFO - Started process (PID=665) to work on /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:36:43.886+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/silver_dag3.py for tasks to queue
+[2026-07-16T05:36:43.917+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:43.904+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:36:44.090+0000] {processor.py:840} INFO - DAG(s) 'silver_dag3' retrieved from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:36:44.457+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:44.457+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:36:44.582+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:36:44.581+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_dag3 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:36:44.737+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/silver_dag3.py took 1.114 seconds
+[2026-07-16T05:37:15.529+0000] {processor.py:161} INFO - Started process (PID=742) to work on /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:15.544+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/silver_dag3.py for tasks to queue
+[2026-07-16T05:37:15.602+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:15.588+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:15.731+0000] {processor.py:840} INFO - DAG(s) 'silver_dag3' retrieved from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:15.972+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:15.971+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:16.621+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:16.620+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_dag3 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:16.928+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/silver_dag3.py took 1.455 seconds
+[2026-07-16T05:37:47.729+0000] {processor.py:161} INFO - Started process (PID=767) to work on /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:47.735+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/silver_dag3.py for tasks to queue
+[2026-07-16T05:37:47.743+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:47.741+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:47.829+0000] {processor.py:840} INFO - DAG(s) 'silver_dag3' retrieved from /opt/airflow/dags/silver_dag3.py
+[2026-07-16T05:37:47.898+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:47.898+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-16T05:37:47.986+0000] {logging_mixin.py:188} INFO - [2026-07-16T05:37:47.985+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_dag3 to 2026-07-16 04:00:00+00:00, run_after=2026-07-16 05:00:00+00:00
+[2026-07-16T05:37:48.062+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/silver_dag3.py took 0.353 seconds
