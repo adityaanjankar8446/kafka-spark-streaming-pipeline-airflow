@@ -41,7 +41,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id       = "e-commerce_kafka_streaming_pipeline_v10",
+    dag_id       = "e-commerce_kafka_streaming_pipeline_v1",
     description  = "Kafka → Bronze → Silver → Gold via Spark",
     default_args = default_args,
     start_date   = datetime(2024, 1, 1),
@@ -61,7 +61,7 @@ with DAG(
     run_bronze = BashOperator(
         task_id      = "run_bronze",
         bash_command = (
-            f"timeout 120s {SPARK_SUBMIT} /opt/pipelines/bronze_runner.py"
+            f"timeout 150s {SPARK_SUBMIT} /opt/pipelines/bronze_runner.py"
         ),
     )
 
@@ -79,7 +79,7 @@ with DAG(
     run_silver = BashOperator(
         task_id      = "run_silver",
         bash_command = (
-            f"timeout 120s {SPARK_SUBMIT} /opt/pipelines/silver_runner.py"
+            f"timeout 150s {SPARK_SUBMIT} /opt/pipelines/silver_runner.py"
         ),
     )
 

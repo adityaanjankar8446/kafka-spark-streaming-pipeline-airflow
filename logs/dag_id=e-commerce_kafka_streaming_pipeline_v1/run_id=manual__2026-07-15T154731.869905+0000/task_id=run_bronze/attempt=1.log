@@ -1,0 +1,277 @@
+[2026-07-15T15:47:43.127+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-15T15:47:43.187+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T15:47:31.869905+00:00 [queued]>
+[2026-07-15T15:47:43.202+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T15:47:31.869905+00:00 [queued]>
+[2026-07-15T15:47:43.204+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-07-15T15:47:43.226+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-07-15 15:47:31.869905+00:00
+[2026-07-15T15:47:43.237+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'run_bronze', 'manual__2026-07-15T15:47:31.869905+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmp2u_3jgx5']
+[2026-07-15T15:47:43.242+0000] {standard_task_runner.py:91} INFO - Job 27: Subtask run_bronze
+[2026-07-15T15:47:43.245+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=459) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-15T15:47:43.247+0000] {standard_task_runner.py:63} INFO - Started process 460 to run task
+[2026-07-15T15:47:43.343+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze manual__2026-07-15T15:47:31.869905+00:00 [running]> on host 823f5885dbb8
+[2026-07-15T15:47:43.493+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-15T15:47:31.869905+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-15T15:47:31.869905+00:00'
+[2026-07-15T15:47:43.494+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-15T15:47:43.516+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-15T15:47:43.519+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 150s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-07-15T15:47:43.536+0000] {subprocess.py:86} INFO - Output:
+[2026-07-15T15:47:52.514+0000] {subprocess.py:93} INFO - 26/07/15 15:47:52 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-15T15:47:54.295+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SparkContext: Running Spark version 3.5.1
+[2026-07-15T15:47:54.298+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SparkContext: OS info Linux, 6.18.33.2-microsoft-standard-WSL2, amd64
+[2026-07-15T15:47:54.300+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SparkContext: Java version 11.0.22
+[2026-07-15T15:47:54.360+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceUtils: ==============================================================
+[2026-07-15T15:47:54.362+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-07-15T15:47:54.364+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceUtils: ==============================================================
+[2026-07-15T15:47:54.365+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-07-15T15:47:54.428+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-07-15T15:47:54.490+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-07-15T15:47:54.494+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-07-15T15:47:54.727+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SecurityManager: Changing view acls to: spark
+[2026-07-15T15:47:54.730+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SecurityManager: Changing modify acls to: spark
+[2026-07-15T15:47:54.731+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SecurityManager: Changing view acls groups to:
+[2026-07-15T15:47:54.732+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SecurityManager: Changing modify acls groups to:
+[2026-07-15T15:47:54.735+0000] {subprocess.py:93} INFO - 26/07/15 15:47:54 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-07-15T15:47:55.589+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO Utils: Successfully started service 'sparkDriver' on port 34123.
+[2026-07-15T15:47:55.663+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO SparkEnv: Registering MapOutputTracker
+[2026-07-15T15:47:55.753+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO SparkEnv: Registering BlockManagerMaster
+[2026-07-15T15:47:55.795+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-07-15T15:47:55.797+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-07-15T15:47:55.811+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-07-15T15:47:55.909+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-42e43dc3-e9b1-468c-9df0-829325cc364a
+[2026-07-15T15:47:55.993+0000] {subprocess.py:93} INFO - 26/07/15 15:47:55 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-07-15T15:47:56.082+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-07-15T15:47:56.510+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-07-15T15:47:56.693+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-07-15T15:47:56.776+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://d3569c55dfa0:34123/jars/delta-spark_2.12-3.2.0.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.778+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://d3569c55dfa0:34123/jars/delta-storage-3.2.0.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.779+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://d3569c55dfa0:34123/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.781+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://d3569c55dfa0:34123/jars/kafka-clients-3.4.1.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.783+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://d3569c55dfa0:34123/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.784+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://d3569c55dfa0:34123/jars/commons-pool2-2.11.1.jar with timestamp 1784130474275
+[2026-07-15T15:47:56.977+0000] {subprocess.py:93} INFO - 26/07/15 15:47:56 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-07-15T15:47:57.088+0000] {subprocess.py:93} INFO - 26/07/15 15:47:57 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.4:7077 after 67 ms (0 ms spent in bootstraps)
+[2026-07-15T15:48:00.016+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260715154758-0000
+[2026-07-15T15:48:00.039+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45757.
+[2026-07-15T15:48:00.042+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO NettyBlockTransferService: Server created on d3569c55dfa0:45757
+[2026-07-15T15:48:00.045+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-07-15T15:48:00.058+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, d3569c55dfa0, 45757, None)
+[2026-07-15T15:48:00.067+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO BlockManagerMasterEndpoint: Registering block manager d3569c55dfa0:45757 with 434.4 MiB RAM, BlockManagerId(driver, d3569c55dfa0, 45757, None)
+[2026-07-15T15:48:00.076+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, d3569c55dfa0, 45757, None)
+[2026-07-15T15:48:00.078+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, d3569c55dfa0, 45757, None)
+[2026-07-15T15:48:00.125+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715154758-0000/0 on worker-20260715153055-172.18.0.5-33825 (172.18.0.5:33825) with 1 core(s)
+[2026-07-15T15:48:00.132+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715154758-0000/0 on hostPort 172.18.0.5:33825 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T15:48:00.145+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715154758-0000/1 on worker-20260715153055-172.18.0.5-33825 (172.18.0.5:33825) with 1 core(s)
+[2026-07-15T15:48:00.147+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715154758-0000/1 on hostPort 172.18.0.5:33825 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T15:48:00.149+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715154758-0000/2 on worker-20260715153055-172.18.0.6-40783 (172.18.0.6:40783) with 1 core(s)
+[2026-07-15T15:48:00.154+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715154758-0000/2 on hostPort 172.18.0.6:40783 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T15:48:00.720+0000] {subprocess.py:93} INFO - 26/07/15 15:48:00 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-07-15T15:48:02.136+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-07-15T15:48:37.806+0000] {subprocess.py:93} INFO - 26/07/15 15:48:37 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T15:48:38.229+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-07-15T15:48:39.950+0000] {subprocess.py:93} INFO - 26/07/15 15:48:39 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T15:48:40.054+0000] {subprocess.py:93} INFO - Starting stream: products -> /opt/data/bronze/products
+[2026-07-15T15:48:40.390+0000] {subprocess.py:93} INFO - 26/07/15 15:48:40 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-07-15T15:48:40.874+0000] {subprocess.py:93} INFO - 26/07/15 15:48:40 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-07-15T15:48:41.203+0000] {subprocess.py:93} INFO - 26/07/15 15:48:41 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T15:48:42.168+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2026-07-15T15:48:42.695+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((customers-0,40,10))
+[2026-07-15T15:48:42.698+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((orders-0,28,7))
+[2026-07-15T15:48:42.699+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((products-0,80,20))
+[2026-07-15T15:48:42.701+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:42.704+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:42.706+0000] {subprocess.py:93} INFO - 26/07/15 15:48:42 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:43.702+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((orders-0,28,7))
+[2026-07-15T15:48:43.704+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((customers-0,40,10))
+[2026-07-15T15:48:43.707+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:43.709+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:43.711+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((products-0,80,20))
+[2026-07-15T15:48:43.712+0000] {subprocess.py:93} INFO - 26/07/15 15:48:43 WARN KafkaOffsetReaderAdmin: Retrying to fetch latest offsets because of incorrect offsets
+[2026-07-15T15:48:44.708+0000] {subprocess.py:93} INFO - 26/07/15 15:48:44 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((products-0,80,20))
+[2026-07-15T15:48:44.710+0000] {subprocess.py:93} INFO - 26/07/15 15:48:44 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((customers-0,40,10))
+[2026-07-15T15:48:44.711+0000] {subprocess.py:93} INFO - 26/07/15 15:48:44 WARN KafkaOffsetReaderAdmin: Found incorrect offsets in some partitions (partition, previous offset, fetched offset): ArrayBuffer((orders-0,28,7))
+[2026-07-15T15:48:45.369+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:48:45.374+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.383+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.386+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.389+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.393+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.406+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:48:45.410+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.411+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.416+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.418+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.419+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.423+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:48:45.427+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.428+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.430+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.432+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.438+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.520+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:48:45.522+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.524+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.526+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.528+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.532+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.536+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:48:45.538+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.540+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.542+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.545+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.550+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.553+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:48:45.556+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.558+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.559+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.560+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.561+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.563+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:48:45.565+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.566+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.570+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.571+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.572+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.574+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:48:45.575+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.576+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.577+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.578+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.581+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.582+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:48:45.585+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.586+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.588+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.589+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.590+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.591+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:48:45.593+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.594+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.596+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.597+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.599+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.600+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:48:45.603+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.604+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.605+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.607+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.608+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:45.609+0000] {subprocess.py:93} INFO - 26/07/15 15:48:45 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:48:45.610+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:48:45.611+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:48:45.613+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:48:45.615+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:48:45.617+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:48:47.561+0000] {subprocess.py:93} INFO - 26/07/15 15:48:47 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-07-15T15:49:17.870+0000] {subprocess.py:93} INFO - 26/07/15 15:49:17 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:49:17.876+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:17.883+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:17.895+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:17.899+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:17.910+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:49:17.913+0000] {subprocess.py:93} INFO - 26/07/15 15:49:17 WARN KafkaMicroBatchStream: Partition customers-0's offset was changed from 40 to 10, some data may have been missed.
+[2026-07-15T15:49:17.915+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:17.929+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:17.932+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:17.934+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:17.938+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:49:22.235+0000] {subprocess.py:93} INFO - 26/07/15 15:49:22 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:49:22.237+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:22.239+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:22.241+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:22.242+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:22.243+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:49:22.244+0000] {subprocess.py:93} INFO - 26/07/15 15:49:22 WARN KafkaMicroBatchStream: Partition products-0's offset was changed from 80 to 20, some data may have been missed.
+[2026-07-15T15:49:22.245+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:22.246+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:22.247+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:22.248+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:22.250+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:49:26.568+0000] {subprocess.py:93} INFO - 26/07/15 15:49:26 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:49:26.570+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:26.583+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:26.587+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:26.588+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:26.595+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:49:26.598+0000] {subprocess.py:93} INFO - 26/07/15 15:49:26 WARN KafkaMicroBatchStream: Partition orders-0's offset was changed from 28 to 7, some data may have been missed.
+[2026-07-15T15:49:26.600+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2026-07-15T15:49:26.604+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2026-07-15T15:49:26.607+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2026-07-15T15:49:26.611+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2026-07-15T15:49:26.615+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:14.087+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-07-15T15:50:14.108+0000] {subprocess.py:93} INFO -   File "/opt/pipelines/bronze_runner.py", line 83, in <module>
+[2026-07-15T15:50:14.118+0000] {subprocess.py:93} INFO -     q.stop()
+[2026-07-15T15:50:14.131+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/streaming/query.py", line 372, in stop
+[2026-07-15T15:50:14.153+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2026-07-15T15:50:14.222+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2026-07-15T15:50:14.223+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2026-07-15T15:50:14.282+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o51.stop.
+[2026-07-15T15:50:14.286+0000] {subprocess.py:93} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2026-07-15T15:50:14.288+0000] {subprocess.py:93} INFO - This stopped SparkContext was created at:
+[2026-07-15T15:50:14.302+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:14.303+0000] {subprocess.py:93} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2026-07-15T15:50:14.321+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-07-15T15:50:14.337+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+[2026-07-15T15:50:14.343+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+[2026-07-15T15:50:14.351+0000] {subprocess.py:93} INFO - java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+[2026-07-15T15:50:14.388+0000] {subprocess.py:93} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2026-07-15T15:50:14.391+0000] {subprocess.py:93} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-07-15T15:50:14.393+0000] {subprocess.py:93} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2026-07-15T15:50:14.397+0000] {subprocess.py:93} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2026-07-15T15:50:14.403+0000] {subprocess.py:93} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2026-07-15T15:50:14.408+0000] {subprocess.py:93} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-07-15T15:50:14.410+0000] {subprocess.py:93} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-07-15T15:50:14.413+0000] {subprocess.py:93} INFO - java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T15:50:14.415+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:14.417+0000] {subprocess.py:93} INFO - The currently active SparkContext was created at:
+[2026-07-15T15:50:14.419+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:14.431+0000] {subprocess.py:93} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2026-07-15T15:50:14.434+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-07-15T15:50:14.436+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+[2026-07-15T15:50:14.438+0000] {subprocess.py:93} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+[2026-07-15T15:50:14.464+0000] {subprocess.py:93} INFO - java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+[2026-07-15T15:50:14.467+0000] {subprocess.py:93} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2026-07-15T15:50:14.482+0000] {subprocess.py:93} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-07-15T15:50:14.484+0000] {subprocess.py:93} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2026-07-15T15:50:14.488+0000] {subprocess.py:93} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2026-07-15T15:50:14.490+0000] {subprocess.py:93} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2026-07-15T15:50:14.492+0000] {subprocess.py:93} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-07-15T15:50:14.494+0000] {subprocess.py:93} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-07-15T15:50:14.495+0000] {subprocess.py:93} INFO - java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T15:50:14.497+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:14.498+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2026-07-15T15:50:14.507+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.cancelJobGroup(SparkContext.scala:2577)
+[2026-07-15T15:50:14.519+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.stop(MicroBatchExecution.scala:210)
+[2026-07-15T15:50:14.522+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamingQueryWrapper.stop(StreamingQueryWrapper.scala:61)
+[2026-07-15T15:50:14.524+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-07-15T15:50:14.526+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-15T15:50:14.530+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-15T15:50:14.532+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[2026-07-15T15:50:14.535+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-07-15T15:50:14.537+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-07-15T15:50:14.539+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-07-15T15:50:14.541+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-07-15T15:50:14.543+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-07-15T15:50:14.547+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-07-15T15:50:14.550+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-07-15T15:50:14.552+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T15:50:14.554+0000] {subprocess.py:93} INFO - 
+[2026-07-15T15:50:15.660+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-07-15T15:50:15.664+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-15T15:50:15.688+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-07-15T15:50:15.708+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=run_bronze, execution_date=20260715T154731, start_date=20260715T154743, end_date=20260715T155015
+[2026-07-15T15:50:15.770+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 27 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 460)
+[2026-07-15T15:50:15.819+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-15T15:50:15.887+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-15T15:50:15.893+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

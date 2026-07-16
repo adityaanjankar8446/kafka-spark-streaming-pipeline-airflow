@@ -1,0 +1,388 @@
+[2026-07-15T12:05:50.721+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-15T12:05:50.825+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-15T11:00:00+00:00 [queued]>
+[2026-07-15T12:05:50.853+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-15T11:00:00+00:00 [queued]>
+[2026-07-15T12:05:50.855+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2026-07-15T12:05:50.899+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-07-15 11:00:00+00:00
+[2026-07-15T12:05:50.934+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'run_bronze', 'scheduled__2026-07-15T11:00:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmp2fclxu1z']
+[2026-07-15T12:05:50.960+0000] {standard_task_runner.py:91} INFO - Job 44: Subtask run_bronze
+[2026-07-15T12:05:50.957+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=180) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-15T12:05:50.965+0000] {standard_task_runner.py:63} INFO - Started process 187 to run task
+[2026-07-15T12:05:51.162+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-15T11:00:00+00:00 [running]> on host 6d7ac32de880
+[2026-07-15T12:05:51.454+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-15T11:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-15T11:00:00+00:00'
+[2026-07-15T12:05:51.459+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-15T12:05:51.543+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-15T12:05:51.547+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 150s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-07-15T12:05:51.580+0000] {subprocess.py:86} INFO - Output:
+[2026-07-15T12:05:56.693+0000] {subprocess.py:93} INFO - 26/07/15 12:05:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-15T12:05:59.150+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SparkContext: Running Spark version 3.5.1
+[2026-07-15T12:05:59.153+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SparkContext: OS info Linux, 6.18.33.2-microsoft-standard-WSL2, amd64
+[2026-07-15T12:05:59.154+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SparkContext: Java version 11.0.22
+[2026-07-15T12:05:59.221+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceUtils: ==============================================================
+[2026-07-15T12:05:59.224+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-07-15T12:05:59.226+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceUtils: ==============================================================
+[2026-07-15T12:05:59.227+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-07-15T12:05:59.274+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-07-15T12:05:59.312+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-07-15T12:05:59.322+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-07-15T12:05:59.564+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SecurityManager: Changing view acls to: spark
+[2026-07-15T12:05:59.568+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SecurityManager: Changing modify acls to: spark
+[2026-07-15T12:05:59.570+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SecurityManager: Changing view acls groups to:
+[2026-07-15T12:05:59.572+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SecurityManager: Changing modify acls groups to:
+[2026-07-15T12:05:59.574+0000] {subprocess.py:93} INFO - 26/07/15 12:05:59 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-07-15T12:06:00.312+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO Utils: Successfully started service 'sparkDriver' on port 36525.
+[2026-07-15T12:06:00.412+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO SparkEnv: Registering MapOutputTracker
+[2026-07-15T12:06:00.503+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO SparkEnv: Registering BlockManagerMaster
+[2026-07-15T12:06:00.547+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-07-15T12:06:00.549+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-07-15T12:06:00.562+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-07-15T12:06:00.638+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-e4493a10-74f0-46d5-98b1-22eb12273363
+[2026-07-15T12:06:00.673+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-07-15T12:06:00.706+0000] {subprocess.py:93} INFO - 26/07/15 12:06:00 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-07-15T12:06:01.145+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-07-15T12:06:01.281+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-07-15T12:06:01.365+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://b4fc3e7d8e15:36525/jars/delta-spark_2.12-3.2.0.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.369+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://b4fc3e7d8e15:36525/jars/delta-storage-3.2.0.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.371+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://b4fc3e7d8e15:36525/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.374+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://b4fc3e7d8e15:36525/jars/kafka-clients-3.4.1.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.376+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://b4fc3e7d8e15:36525/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.378+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://b4fc3e7d8e15:36525/jars/commons-pool2-2.11.1.jar with timestamp 1784117159126
+[2026-07-15T12:06:01.569+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-07-15T12:06:01.694+0000] {subprocess.py:93} INFO - 26/07/15 12:06:01 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.2:7077 after 70 ms (0 ms spent in bootstraps)
+[2026-07-15T12:06:02.143+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260715120602-0000
+[2026-07-15T12:06:02.188+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42593.
+[2026-07-15T12:06:02.192+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO NettyBlockTransferService: Server created on b4fc3e7d8e15:42593
+[2026-07-15T12:06:02.196+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-07-15T12:06:02.219+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, b4fc3e7d8e15, 42593, None)
+[2026-07-15T12:06:02.241+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO BlockManagerMasterEndpoint: Registering block manager b4fc3e7d8e15:42593 with 434.4 MiB RAM, BlockManagerId(driver, b4fc3e7d8e15, 42593, None)
+[2026-07-15T12:06:02.244+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, b4fc3e7d8e15, 42593, None)
+[2026-07-15T12:06:02.248+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, b4fc3e7d8e15, 42593, None)
+[2026-07-15T12:06:02.328+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715120602-0000/0 on worker-20260715120445-172.18.0.6-36249 (172.18.0.6:36249) with 1 core(s)
+[2026-07-15T12:06:02.339+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715120602-0000/0 on hostPort 172.18.0.6:36249 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T12:06:02.344+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715120602-0000/1 on worker-20260715120445-172.18.0.6-36249 (172.18.0.6:36249) with 1 core(s)
+[2026-07-15T12:06:02.351+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715120602-0000/1 on hostPort 172.18.0.6:36249 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T12:06:02.355+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260715120602-0000/2 on worker-20260715120445-172.18.0.5-42817 (172.18.0.5:42817) with 1 core(s)
+[2026-07-15T12:06:02.374+0000] {subprocess.py:93} INFO - 26/07/15 12:06:02 INFO StandaloneSchedulerBackend: Granted executor ID app-20260715120602-0000/2 on hostPort 172.18.0.5:42817 with 1 core(s), 512.0 MiB RAM
+[2026-07-15T12:06:03.391+0000] {subprocess.py:93} INFO - 26/07/15 12:06:03 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715120602-0000/0 is now RUNNING
+[2026-07-15T12:06:03.393+0000] {subprocess.py:93} INFO - 26/07/15 12:06:03 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715120602-0000/1 is now RUNNING
+[2026-07-15T12:06:03.394+0000] {subprocess.py:93} INFO - 26/07/15 12:06:03 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260715120602-0000/2 is now RUNNING
+[2026-07-15T12:06:03.672+0000] {subprocess.py:93} INFO - 26/07/15 12:06:03 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-07-15T12:06:05.205+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-07-15T12:06:35.738+0000] {subprocess.py:93} INFO - 26/07/15 12:06:35 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-15T12:06:36.108+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-07-15T12:06:38.710+0000] {subprocess.py:93} INFO - 26/07/15 12:06:38 WARN TaskSetManager: Lost task 0.0 in stage 1.0 (TID 3) (172.18.0.6 executor 0): org.apache.spark.SparkException: Encountered error while reading file file:///opt/data/bronze/customers/_delta_log/00000000000000000005.json. Details:
+[2026-07-15T12:06:38.713+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:863)
+[2026-07-15T12:06:38.717+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:293)
+[2026-07-15T12:06:38.723+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:38.728+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:38.730+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2026-07-15T12:06:38.733+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2026-07-15T12:06:38.739+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2026-07-15T12:06:38.744+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:388)
+[2026-07-15T12:06:38.747+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+[2026-07-15T12:06:38.749+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+[2026-07-15T12:06:38.751+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2026-07-15T12:06:38.753+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2026-07-15T12:06:38.756+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2026-07-15T12:06:38.761+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2026-07-15T12:06:38.765+0000] {subprocess.py:93} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2026-07-15T12:06:38.770+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2026-07-15T12:06:38.772+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2026-07-15T12:06:38.774+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2026-07-15T12:06:38.776+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2026-07-15T12:06:38.777+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2026-07-15T12:06:38.779+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2026-07-15T12:06:38.780+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-07-15T12:06:38.782+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-07-15T12:06:38.783+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T12:06:38.785+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: [MALFORMED_RECORD_IN_PARSING.WITHOUT_SUGGESTION] Malformed records are detected in record parsing: [null,null,null].
+[2026-07-15T12:06:38.786+0000] {subprocess.py:93} INFO - Parse Mode: FAILFAST. To process malformed records as null result, try setting the option 'mode' as 'PERMISSIVE'.
+[2026-07-15T12:06:38.788+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.malformedRecordsDetectedInRecordParsingError(QueryExecutionErrors.scala:1610)
+[2026-07-15T12:06:38.790+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:79)
+[2026-07-15T12:06:38.791+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$9(JsonDataSource.scala:143)
+[2026-07-15T12:06:38.793+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+[2026-07-15T12:06:38.795+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+[2026-07-15T12:06:38.796+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:38.798+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:38.800+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:283)
+[2026-07-15T12:06:38.801+0000] {subprocess.py:93} INFO - 	... 22 more
+[2026-07-15T12:06:38.803+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.sql.catalyst.util.BadRecordException: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:38.805+0000] {subprocess.py:93} INFO -  at [Source: (byte[])"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"[truncated 454 bytes]; line: 1, column: 2]
+[2026-07-15T12:06:38.808+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:594)
+[2026-07-15T12:06:38.809+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$7(JsonDataSource.scala:139)
+[2026-07-15T12:06:38.811+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:60)
+[2026-07-15T12:06:38.813+0000] {subprocess.py:93} INFO - 	... 28 more
+[2026-07-15T12:06:38.814+0000] {subprocess.py:93} INFO - Caused by: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:38.816+0000] {subprocess.py:93} INFO -  at [Source: (byte[])"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"[truncated 454 bytes]; line: 1, column: 2]
+[2026-07-15T12:06:38.817+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+[2026-07-15T12:06:38.820+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+[2026-07-15T12:06:38.822+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._throwInvalidSpace(ParserMinimalBase.java:728)
+[2026-07-15T12:06:38.824+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2541)
+[2026-07-15T12:06:38.827+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:701)
+[2026-07-15T12:06:38.829+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.$anonfun$parse$2(JacksonParser.scala:580)
+[2026-07-15T12:06:38.831+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource(SparkErrorUtils.scala:48)
+[2026-07-15T12:06:38.832+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource$(SparkErrorUtils.scala:46)
+[2026-07-15T12:06:38.837+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithResource(Utils.scala:94)
+[2026-07-15T12:06:38.842+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:577)
+[2026-07-15T12:06:38.843+0000] {subprocess.py:93} INFO - 	... 30 more
+[2026-07-15T12:06:38.845+0000] {subprocess.py:93} INFO - 
+[2026-07-15T12:06:41.227+0000] {subprocess.py:93} INFO - 26/07/15 12:06:41 ERROR TaskSetManager: Task 0 in stage 1.0 failed 4 times; aborting job
+[2026-07-15T12:06:42.189+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-07-15T12:06:42.192+0000] {subprocess.py:93} INFO -   File "/opt/pipelines/bronze_runner.py", line 63, in <module>
+[2026-07-15T12:06:42.197+0000] {subprocess.py:93} INFO -     bronze_df.writeStream
+[2026-07-15T12:06:42.201+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/streaming/readwriter.py", line 1527, in start
+[2026-07-15T12:06:42.204+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2026-07-15T12:06:42.206+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2026-07-15T12:06:42.208+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2026-07-15T12:06:42.254+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o66.start.
+[2026-07-15T12:06:42.258+0000] {subprocess.py:93} INFO - : org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 1.0 failed 4 times, most recent failure: Lost task 0.3 in stage 1.0 (TID 8) (172.18.0.6 executor 0): org.apache.spark.SparkException: Encountered error while reading file file:///opt/data/bronze/customers/_delta_log/00000000000000000005.json. Details:
+[2026-07-15T12:06:42.261+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:863)
+[2026-07-15T12:06:42.266+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:293)
+[2026-07-15T12:06:42.268+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:42.270+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:42.272+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2026-07-15T12:06:42.274+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2026-07-15T12:06:42.276+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2026-07-15T12:06:42.278+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:388)
+[2026-07-15T12:06:42.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+[2026-07-15T12:06:42.282+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+[2026-07-15T12:06:42.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2026-07-15T12:06:42.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2026-07-15T12:06:42.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2026-07-15T12:06:42.289+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2026-07-15T12:06:42.291+0000] {subprocess.py:93} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2026-07-15T12:06:42.294+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2026-07-15T12:06:42.298+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2026-07-15T12:06:42.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2026-07-15T12:06:42.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2026-07-15T12:06:42.304+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2026-07-15T12:06:42.305+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2026-07-15T12:06:42.307+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-07-15T12:06:42.309+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-07-15T12:06:42.311+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T12:06:42.312+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: [MALFORMED_RECORD_IN_PARSING.WITHOUT_SUGGESTION] Malformed records are detected in record parsing: [null,null,null].
+[2026-07-15T12:06:42.314+0000] {subprocess.py:93} INFO - Parse Mode: FAILFAST. To process malformed records as null result, try setting the option 'mode' as 'PERMISSIVE'.
+[2026-07-15T12:06:42.316+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.malformedRecordsDetectedInRecordParsingError(QueryExecutionErrors.scala:1610)
+[2026-07-15T12:06:42.318+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:79)
+[2026-07-15T12:06:42.319+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$9(JsonDataSource.scala:143)
+[2026-07-15T12:06:42.321+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+[2026-07-15T12:06:42.336+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+[2026-07-15T12:06:42.338+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:42.340+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:42.341+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:283)
+[2026-07-15T12:06:42.343+0000] {subprocess.py:93} INFO - 	... 22 more
+[2026-07-15T12:06:42.344+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.sql.catalyst.util.BadRecordException: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:42.346+0000] {subprocess.py:93} INFO -  at [Source: (byte[])"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"[truncated 454 bytes]; line: 1, column: 2]
+[2026-07-15T12:06:42.348+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:594)
+[2026-07-15T12:06:42.350+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$7(JsonDataSource.scala:139)
+[2026-07-15T12:06:42.351+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:60)
+[2026-07-15T12:06:42.358+0000] {subprocess.py:93} INFO - 	... 28 more
+[2026-07-15T12:06:42.368+0000] {subprocess.py:93} INFO - Caused by: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:42.372+0000] {subprocess.py:93} INFO -  at [Source: (byte[])"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"[truncated 454 bytes]; line: 1, column: 2]
+[2026-07-15T12:06:42.376+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+[2026-07-15T12:06:42.377+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+[2026-07-15T12:06:42.379+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._throwInvalidSpace(ParserMinimalBase.java:728)
+[2026-07-15T12:06:42.381+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2541)
+[2026-07-15T12:06:42.383+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:701)
+[2026-07-15T12:06:42.385+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.$anonfun$parse$2(JacksonParser.scala:580)
+[2026-07-15T12:06:42.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource(SparkErrorUtils.scala:48)
+[2026-07-15T12:06:42.398+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource$(SparkErrorUtils.scala:46)
+[2026-07-15T12:06:42.402+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithResource(Utils.scala:94)
+[2026-07-15T12:06:42.407+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:577)
+[2026-07-15T12:06:42.409+0000] {subprocess.py:93} INFO - 	... 30 more
+[2026-07-15T12:06:42.412+0000] {subprocess.py:93} INFO - 
+[2026-07-15T12:06:42.414+0000] {subprocess.py:93} INFO - Driver stacktrace:
+[2026-07-15T12:06:42.417+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+[2026-07-15T12:06:42.421+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+[2026-07-15T12:06:42.423+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+[2026-07-15T12:06:42.425+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2026-07-15T12:06:42.428+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2026-07-15T12:06:42.431+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2026-07-15T12:06:42.432+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+[2026-07-15T12:06:42.443+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+[2026-07-15T12:06:42.445+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+[2026-07-15T12:06:42.448+0000] {subprocess.py:93} INFO - 	at scala.Option.foreach(Option.scala:407)
+[2026-07-15T12:06:42.450+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+[2026-07-15T12:06:42.454+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+[2026-07-15T12:06:42.471+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+[2026-07-15T12:06:42.481+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+[2026-07-15T12:06:42.493+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+[2026-07-15T12:06:42.495+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2026-07-15T12:06:42.498+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+[2026-07-15T12:06:42.501+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+[2026-07-15T12:06:42.503+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+[2026-07-15T12:06:42.505+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2463)
+[2026-07-15T12:06:42.507+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1049)
+[2026-07-15T12:06:42.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2026-07-15T12:06:42.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2026-07-15T12:06:42.513+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2026-07-15T12:06:42.515+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.collect(RDD.scala:1048)
+[2026-07-15T12:06:42.517+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:448)
+[2026-07-15T12:06:42.518+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4332)
+[2026-07-15T12:06:42.520+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$collect$1(Dataset.scala:3573)
+[2026-07-15T12:06:42.522+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+[2026-07-15T12:06:42.523+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2026-07-15T12:06:42.525+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+[2026-07-15T12:06:42.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-07-15T12:06:42.529+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-07-15T12:06:42.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-07-15T12:06:42.535+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-15T12:06:42.541+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-07-15T12:06:42.544+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+[2026-07-15T12:06:42.546+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collect(Dataset.scala:3573)
+[2026-07-15T12:06:42.548+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.protocolMetadataAndICTReconstruction(Snapshot.scala:309)
+[2026-07-15T12:06:42.550+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot._reconstructedProtocolMetadataAndICT$lzycompute(Snapshot.scala:203)
+[2026-07-15T12:06:42.552+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot._reconstructedProtocolMetadataAndICT(Snapshot.scala:196)
+[2026-07-15T12:06:42.553+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.metadata(Snapshot.scala:278)
+[2026-07-15T12:06:42.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.managedcommit.CommitOwnerProvider$.getTableCommitOwner(CommitOwnerClient.scala:212)
+[2026-07-15T12:06:42.557+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.initializeTableCommitOwner(Snapshot.scala:237)
+[2026-07-15T12:06:42.559+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.<init>(Snapshot.scala:235)
+[2026-07-15T12:06:42.560+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$createSnapshot$2(SnapshotManagement.scala:634)
+[2026-07-15T12:06:42.562+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshotFromGivenOrEquivalentLogSegment(SnapshotManagement.scala:796)
+[2026-07-15T12:06:42.563+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshotFromGivenOrEquivalentLogSegment$(SnapshotManagement.scala:782)
+[2026-07-15T12:06:42.565+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.createSnapshotFromGivenOrEquivalentLogSegment(DeltaLog.scala:74)
+[2026-07-15T12:06:42.567+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshot(SnapshotManagement.scala:627)
+[2026-07-15T12:06:42.569+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshot$(SnapshotManagement.scala:618)
+[2026-07-15T12:06:42.571+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.createSnapshot(DeltaLog.scala:74)
+[2026-07-15T12:06:42.573+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotForLogSegmentInternal$1(SnapshotManagement.scala:1043)
+[2026-07-15T12:06:42.575+0000] {subprocess.py:93} INFO - 	at scala.Option.map(Option.scala:230)
+[2026-07-15T12:06:42.576+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotForLogSegmentInternal(SnapshotManagement.scala:1036)
+[2026-07-15T12:06:42.578+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotForLogSegmentInternal$(SnapshotManagement.scala:1031)
+[2026-07-15T12:06:42.583+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getSnapshotForLogSegmentInternal(DeltaLog.scala:74)
+[2026-07-15T12:06:42.585+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getUpdatedSnapshot(SnapshotManagement.scala:1012)
+[2026-07-15T12:06:42.586+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getUpdatedSnapshot$(SnapshotManagement.scala:1003)
+[2026-07-15T12:06:42.588+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getUpdatedSnapshot(DeltaLog.scala:74)
+[2026-07-15T12:06:42.589+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotAtInit$2(SnapshotManagement.scala:583)
+[2026-07-15T12:06:42.597+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-07-15T12:06:42.599+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-07-15T12:06:42.600+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.recordFrameProfile(DeltaLog.scala:74)
+[2026-07-15T12:06:42.602+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotAtInit$1(SnapshotManagement.scala:573)
+[2026-07-15T12:06:42.603+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly(SnapshotManagement.scala:78)
+[2026-07-15T12:06:42.604+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly$(SnapshotManagement.scala:75)
+[2026-07-15T12:06:42.606+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.withSnapshotLockInterruptibly(DeltaLog.scala:74)
+[2026-07-15T12:06:42.610+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotAtInit(SnapshotManagement.scala:573)
+[2026-07-15T12:06:42.612+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotAtInit$(SnapshotManagement.scala:572)
+[2026-07-15T12:06:42.615+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getSnapshotAtInit(DeltaLog.scala:74)
+[2026-07-15T12:06:42.617+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$init$(SnapshotManagement.scala:69)
+[2026-07-15T12:06:42.620+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.<init>(DeltaLog.scala:80)
+[2026-07-15T12:06:42.626+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$4(DeltaLog.scala:853)
+[2026-07-15T12:06:42.628+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:323)
+[2026-07-15T12:06:42.629+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$3(DeltaLog.scala:848)
+[2026-07-15T12:06:42.631+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-07-15T12:06:42.632+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-07-15T12:06:42.634+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordFrameProfile(DeltaLog.scala:651)
+[2026-07-15T12:06:42.638+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-07-15T12:06:42.644+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-07-15T12:06:42.646+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-07-15T12:06:42.648+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordOperation(DeltaLog.scala:651)
+[2026-07-15T12:06:42.650+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-07-15T12:06:42.652+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-07-15T12:06:42.659+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-07-15T12:06:42.666+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordDeltaOperation(DeltaLog.scala:651)
+[2026-07-15T12:06:42.670+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.createDeltaLog$1(DeltaLog.scala:847)
+[2026-07-15T12:06:42.671+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$5(DeltaLog.scala:866)
+[2026-07-15T12:06:42.673+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4792)
+[2026-07-15T12:06:42.675+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)
+[2026-07-15T12:06:42.677+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)
+[2026-07-15T12:06:42.678+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)
+[2026-07-15T12:06:42.680+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2257)
+[2026-07-15T12:06:42.681+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache.get(LocalCache.java:4000)
+[2026-07-15T12:06:42.684+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4789)
+[2026-07-15T12:06:42.685+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.getDeltaLogFromCache$1(DeltaLog.scala:865)
+[2026-07-15T12:06:42.689+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.apply(DeltaLog.scala:875)
+[2026-07-15T12:06:42.695+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.apply(DeltaLog.scala:784)
+[2026-07-15T12:06:42.697+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.forTable(DeltaLog.scala:746)
+[2026-07-15T12:06:42.698+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.<init>(DeltaSink.scala:54)
+[2026-07-15T12:06:42.701+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaDataSource.createSink(DeltaDataSource.scala:174)
+[2026-07-15T12:06:42.703+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.DataSource.createSink(DataSource.scala:313)
+[2026-07-15T12:06:42.704+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.createV1Sink(DataStreamWriter.scala:442)
+[2026-07-15T12:06:42.706+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.startInternal(DataStreamWriter.scala:404)
+[2026-07-15T12:06:42.710+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.start(DataStreamWriter.scala:251)
+[2026-07-15T12:06:42.712+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-07-15T12:06:42.714+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-15T12:06:42.716+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-15T12:06:42.717+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[2026-07-15T12:06:42.719+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-07-15T12:06:42.720+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-07-15T12:06:42.722+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-07-15T12:06:42.724+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-07-15T12:06:42.728+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-07-15T12:06:42.730+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-07-15T12:06:42.731+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-07-15T12:06:42.733+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-15T12:06:42.734+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: Encountered error while reading file file:///opt/data/bronze/customers/_delta_log/00000000000000000005.json. Details:
+[2026-07-15T12:06:42.736+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:863)
+[2026-07-15T12:06:42.737+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:293)
+[2026-07-15T12:06:42.739+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:42.741+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:42.743+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2026-07-15T12:06:42.745+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2026-07-15T12:06:42.746+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2026-07-15T12:06:42.750+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:388)
+[2026-07-15T12:06:42.751+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:893)
+[2026-07-15T12:06:42.753+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:893)
+[2026-07-15T12:06:42.754+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2026-07-15T12:06:42.756+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2026-07-15T12:06:42.757+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2026-07-15T12:06:42.758+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2026-07-15T12:06:42.760+0000] {subprocess.py:93} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2026-07-15T12:06:42.761+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2026-07-15T12:06:42.762+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2026-07-15T12:06:42.764+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2026-07-15T12:06:42.765+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2026-07-15T12:06:42.766+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2026-07-15T12:06:42.767+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2026-07-15T12:06:42.768+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-07-15T12:06:42.770+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-07-15T12:06:42.771+0000] {subprocess.py:93} INFO - 	... 1 more
+[2026-07-15T12:06:42.773+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: [MALFORMED_RECORD_IN_PARSING.WITHOUT_SUGGESTION] Malformed records are detected in record parsing: [null,null,null].
+[2026-07-15T12:06:42.775+0000] {subprocess.py:93} INFO - Parse Mode: FAILFAST. To process malformed records as null result, try setting the option 'mode' as 'PERMISSIVE'.
+[2026-07-15T12:06:42.777+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.malformedRecordsDetectedInRecordParsingError(QueryExecutionErrors.scala:1610)
+[2026-07-15T12:06:42.778+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:79)
+[2026-07-15T12:06:42.779+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$9(JsonDataSource.scala:143)
+[2026-07-15T12:06:42.780+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+[2026-07-15T12:06:42.782+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+[2026-07-15T12:06:42.783+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2026-07-15T12:06:42.784+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:129)
+[2026-07-15T12:06:42.785+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:283)
+[2026-07-15T12:06:42.786+0000] {subprocess.py:93} INFO - 	... 22 more
+[2026-07-15T12:06:42.788+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.sql.catalyst.util.BadRecordException: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:42.789+0000] {subprocess.py:93} INFO -  at [Source: (byte[])"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"[truncated 454 bytes]; line: 1, column: 2]
+[2026-07-15T12:06:42.790+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:594)
+[2026-07-15T12:06:42.792+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.json.TextInputJsonDataSource$.$anonfun$readFile$7(JsonDataSource.scala:139)
+[2026-07-15T12:06:42.794+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.util.FailureSafeParser.parse(FailureSafeParser.scala:60)
+[2026-07-15T12:06:42.795+0000] {subprocess.py:93} INFO - 	... 28 more
+[2026-07-15T12:06:42.796+0000] {subprocess.py:93} INFO - Caused by: com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+[2026-07-15T12:06:42.797+0000] {subprocess.py:93} INFO -  at [Source: UNKNOWN; line: 1, column: 2]
+[2026-07-15T12:06:42.798+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+[2026-07-15T12:06:42.799+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+[2026-07-15T12:06:42.800+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._throwInvalidSpace(ParserMinimalBase.java:728)
+[2026-07-15T12:06:42.801+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2541)
+[2026-07-15T12:06:42.802+0000] {subprocess.py:93} INFO - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:701)
+[2026-07-15T12:06:42.803+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.$anonfun$parse$2(JacksonParser.scala:580)
+[2026-07-15T12:06:42.804+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource(SparkErrorUtils.scala:48)
+[2026-07-15T12:06:42.805+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithResource$(SparkErrorUtils.scala:46)
+[2026-07-15T12:06:42.806+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithResource(Utils.scala:94)
+[2026-07-15T12:06:42.807+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.json.JacksonParser.parse(JacksonParser.scala:577)
+[2026-07-15T12:06:42.809+0000] {subprocess.py:93} INFO - 	... 30 more
+[2026-07-15T12:06:42.811+0000] {subprocess.py:93} INFO - 
+[2026-07-15T12:06:43.144+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-15T12:06:43.151+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-15T12:06:43.179+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-15T12:06:43.197+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=run_bronze, execution_date=20260715T110000, start_date=20260715T120550, end_date=20260715T120643
+[2026-07-15T12:06:43.244+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 44 for task run_bronze (Bash command failed. The command returned a non-zero exit code 1.; 187)
+[2026-07-15T12:06:43.301+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-15T12:06:43.372+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-15T12:06:43.384+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
