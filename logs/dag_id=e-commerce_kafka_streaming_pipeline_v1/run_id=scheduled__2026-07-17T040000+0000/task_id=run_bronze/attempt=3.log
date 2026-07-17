@@ -1,0 +1,366 @@
+[2026-07-17T06:03:27.967+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-17T06:03:28.104+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-17T04:00:00+00:00 [queued]>
+[2026-07-17T06:03:28.139+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-17T04:00:00+00:00 [queued]>
+[2026-07-17T06:03:28.141+0000] {taskinstance.py:2303} INFO - Starting attempt 3 of 4
+[2026-07-17T06:03:28.209+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-07-17 04:00:00+00:00
+[2026-07-17T06:03:28.281+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'run_bronze', 'scheduled__2026-07-17T04:00:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmpbtido5wk']
+[2026-07-17T06:03:28.299+0000] {standard_task_runner.py:91} INFO - Job 103: Subtask run_bronze
+[2026-07-17T06:03:28.288+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3075) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-17T06:03:28.316+0000] {standard_task_runner.py:63} INFO - Started process 3076 to run task
+[2026-07-17T06:03:29.127+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-17T04:00:00+00:00 [running]> on host da27550080bf
+[2026-07-17T06:03:29.686+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-17T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-17T04:00:00+00:00'
+[2026-07-17T06:03:29.694+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-17T06:03:29.756+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-17T06:03:29.761+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 150s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-07-17T06:03:29.796+0000] {subprocess.py:86} INFO - Output:
+[2026-07-17T06:03:43.529+0000] {subprocess.py:93} INFO - 26/07/17 06:03:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-17T06:04:32.129+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO SparkContext: Running Spark version 3.5.1
+[2026-07-17T06:04:32.153+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO SparkContext: OS info Linux, 6.18.33.2-microsoft-standard-WSL2, amd64
+[2026-07-17T06:04:32.159+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO SparkContext: Java version 11.0.22
+[2026-07-17T06:04:32.166+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO ResourceUtils: ==============================================================
+[2026-07-17T06:04:32.170+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-07-17T06:04:32.175+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO ResourceUtils: ==============================================================
+[2026-07-17T06:04:32.190+0000] {subprocess.py:93} INFO - 26/07/17 06:03:52 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-07-17T06:04:32.215+0000] {subprocess.py:93} INFO - 26/07/17 06:03:53 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-07-17T06:04:32.377+0000] {subprocess.py:93} INFO - 26/07/17 06:03:53 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-07-17T06:04:32.381+0000] {subprocess.py:93} INFO - 26/07/17 06:03:53 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-07-17T06:04:32.383+0000] {subprocess.py:93} INFO - 26/07/17 06:03:55 INFO SecurityManager: Changing view acls to: spark
+[2026-07-17T06:04:32.389+0000] {subprocess.py:93} INFO - 26/07/17 06:03:55 INFO SecurityManager: Changing modify acls to: spark
+[2026-07-17T06:04:32.394+0000] {subprocess.py:93} INFO - 26/07/17 06:03:55 INFO SecurityManager: Changing view acls groups to:
+[2026-07-17T06:04:32.433+0000] {subprocess.py:93} INFO - 26/07/17 06:03:55 INFO SecurityManager: Changing modify acls groups to:
+[2026-07-17T06:04:32.440+0000] {subprocess.py:93} INFO - 26/07/17 06:03:55 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-07-17T06:04:32.667+0000] {subprocess.py:93} INFO - 26/07/17 06:04:32 INFO Utils: Successfully started service 'sparkDriver' on port 40097.
+[2026-07-17T06:04:32.796+0000] {subprocess.py:93} INFO - 26/07/17 06:04:32 INFO SparkEnv: Registering MapOutputTracker
+[2026-07-17T06:04:32.956+0000] {subprocess.py:93} INFO - 26/07/17 06:04:32 INFO SparkEnv: Registering BlockManagerMaster
+[2026-07-17T06:04:33.128+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-07-17T06:04:33.154+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-07-17T06:04:33.167+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-07-17T06:04:33.284+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f41b3847-0567-4640-9218-80ecd8003072
+[2026-07-17T06:04:33.429+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-07-17T06:04:33.624+0000] {subprocess.py:93} INFO - 26/07/17 06:04:33 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-07-17T06:04:34.573+0000] {subprocess.py:93} INFO - 26/07/17 06:04:34 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-07-17T06:04:34.789+0000] {subprocess.py:93} INFO - 26/07/17 06:04:34 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-07-17T06:04:35.037+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://304320a6e3d4:40097/jars/delta-spark_2.12-3.2.0.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.048+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://304320a6e3d4:40097/jars/delta-storage-3.2.0.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.050+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://304320a6e3d4:40097/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.061+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://304320a6e3d4:40097/jars/kafka-clients-3.4.1.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.067+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://304320a6e3d4:40097/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.068+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://304320a6e3d4:40097/jars/commons-pool2-2.11.1.jar with timestamp 1784268232067
+[2026-07-17T06:04:35.497+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-07-17T06:04:35.866+0000] {subprocess.py:93} INFO - 26/07/17 06:04:35 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.4:7077 after 190 ms (0 ms spent in bootstraps)
+[2026-07-17T06:04:36.322+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260717060436-0046
+[2026-07-17T06:04:36.361+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36899.
+[2026-07-17T06:04:36.364+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO NettyBlockTransferService: Server created on 304320a6e3d4:36899
+[2026-07-17T06:04:36.374+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-07-17T06:04:36.388+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 304320a6e3d4, 36899, None)
+[2026-07-17T06:04:36.394+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO BlockManagerMasterEndpoint: Registering block manager 304320a6e3d4:36899 with 434.4 MiB RAM, BlockManagerId(driver, 304320a6e3d4, 36899, None)
+[2026-07-17T06:04:36.404+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 304320a6e3d4, 36899, None)
+[2026-07-17T06:04:36.408+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 304320a6e3d4, 36899, None)
+[2026-07-17T06:04:36.965+0000] {subprocess.py:93} INFO - 26/07/17 06:04:36 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-07-17T06:04:37.682+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-07-17T06:05:13.610+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 213, in heartbeat
+    heartbeat_callback(session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/local_task_job_runner.py", line 258, in heartbeat_callback
+    self.task_instance.refresh_from_db()
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1818, in refresh_from_db
+    _refresh_from_db(task_instance=self, session=session, lock_for_update=lock_for_update)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 510, in _refresh_from_db
+    ti = TaskInstance.get_task_instance(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1804, in get_task_instance
+    return query.one_or_none()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2850, in one_or_none
+    return self._iter().one_or_none()
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2916, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-07-17T06:05:14.014+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-07-17T06:06:36.449+0000] {subprocess.py:93} INFO - 26/07/17 06:05:14 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:36.551+0000] {subprocess.py:93} INFO - 26/07/17 06:05:29 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:36.581+0000] {subprocess.py:93} INFO - 26/07/17 06:05:45 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:36.601+0000] {subprocess.py:93} INFO - 26/07/17 06:06:02 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:36.607+0000] {subprocess.py:93} INFO - 26/07/17 06:06:35 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:36.618+0000] {subprocess.py:93} INFO - 26/07/17 06:06:35 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+[2026-07-17T06:06:37.341+0000] {subprocess.py:93} INFO - 26/07/17 06:06:37 WARN Dispatcher: Message RequestMessage(sdp-spark-master:7077, NettyRpcEndpointRef(spark://AppClient@304320a6e3d4:40097), ExecutorAdded(2,worker-20260716063602-172.18.0.5-44367,172.18.0.5:44367,1,512)) dropped due to sparkEnv is stopped. Could not find AppClient.
+[2026-07-17T06:06:37.723+0000] {subprocess.py:93} INFO - 26/07/17 06:06:37 WARN DeltaLog: Failed to create a snapshot from log segment: LogSegment(file:/opt/data/bronze/orders/_delta_log,11,WrappedArray(DeprecatedRawLocalFileStatus{path=file:/opt/data/bronze/orders/_delta_log/00000000000000000011.json; isDirectory=false; length=965; replication=1; blocksize=33554432; modification_time=1784267144680; access_time=1784267144680; owner=; group=; permission=rw-rw-rw-; isSymlink=false; hasAcl=false; isEncrypted=false; isErasureCoded=false}),UninitializedV1OrV2ParquetCheckpointProvider(10,DeprecatedRawLocalFileStatus{path=file:/opt/data/bronze/orders/_delta_log/00000000000000000010.checkpoint.parquet; isDirectory=false; length=17045; replication=1; blocksize=33554432; modification_time=1784211332896; access_time=1784211332896; owner=; group=; permission=rw-rw-rw-; isSymlink=false; hasAcl=false; isEncrypted=false; isErasureCoded=false},file:/opt/data/bronze/orders/_delta_log,Some(LastCheckpointInfo(10,13,None,Some(17045),Some(10),Some(StructType(StructField(txn,StructType(StructField(appId,StringType,true),StructField(version,LongType,true),StructField(lastUpdated,LongType,true)),true),StructField(add,StructType(StructField(path,StringType,true),StructField(partitionValues,MapType(StringType,StringType,true),true),StructField(size,LongType,true),StructField(modificationTime,LongType,true),StructField(dataChange,BooleanType,true),StructField(tags,MapType(StringType,StringType,true),true),StructField(deletionVector,StructType(StructField(storageType,StringType,true),StructField(pathOrInlineDv,StringType,true),StructField(offset,IntegerType,true),StructField(sizeInBytes,IntegerType,true),StructField(cardinality,LongType,true),StructField(maxRowIndex,LongType,true)),true),StructField(baseRowId,LongType,true),StructField(defaultRowCommitVersion,LongType,true),StructField(clusteringProvider,StringType,true),StructField(stats,StringType,true)),true),StructField(remove,StructType(StructField(path,StringType,true),StructField(deletionTimestamp,LongType,true),StructField(dataChange,BooleanType,true),StructField(extendedFileMetadata,BooleanType,true),StructField(partitionValues,MapType(StringType,StringType,true),true),StructField(size,LongType,true),StructField(deletionVector,StructType(StructField(storageType,StringType,true),StructField(pathOrInlineDv,StringType,true),StructField(offset,IntegerType,true),StructField(sizeInBytes,IntegerType,true),StructField(cardinality,LongType,true),StructField(maxRowIndex,LongType,true)),true),StructField(baseRowId,LongType,true),StructField(defaultRowCommitVersion,LongType,true)),true),StructField(metaData,StructType(StructField(id,StringType,true),StructField(name,StringType,true),StructField(description,StringType,true),StructField(format,StructType(StructField(provider,StringType,true),StructField(options,MapType(StringType,StringType,true),true)),true),StructField(schemaString,StringType,true),StructField(partitionColumns,ArrayType(StringType,true),true),StructField(configuration,MapType(StringType,StringType,true),true),StructField(createdTime,LongType,true)),true),StructField(protocol,StructType(StructField(minReaderVersion,IntegerType,true),StructField(minWriterVersion,IntegerType,true),StructField(readerFeatures,ArrayType(StringType,true),true),StructField(writerFeatures,ArrayType(StringType,true),true)),true),StructField(domainMetadata,StructType(StructField(domain,StringType,true),StructField(configuration,StringType,true),StructField(removed,BooleanType,true)),true))),None,Some(f5f850337fc4ae7075e6d33f398b7d1b)))),1784267144680). Trying a different checkpoint.
+[2026-07-17T06:06:37.725+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Job 1 cancelled because SparkContext was shut down
+[2026-07-17T06:06:37.726+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1253)
+[2026-07-17T06:06:37.728+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1251)
+[2026-07-17T06:06:37.729+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+[2026-07-17T06:06:37.737+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1251)
+[2026-07-17T06:06:37.744+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:3087)
+[2026-07-17T06:06:37.745+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+[2026-07-17T06:06:37.747+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2973)
+[2026-07-17T06:06:37.748+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-07-17T06:06:37.752+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2973)
+[2026-07-17T06:06:37.753+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+[2026-07-17T06:06:37.755+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-07-17T06:06:37.755+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+[2026-07-17T06:06:37.756+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+[2026-07-17T06:06:37.757+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:686)
+[2026-07-17T06:06:37.758+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+[2026-07-17T06:06:37.759+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+[2026-07-17T06:06:37.760+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-17T06:06:37.761+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+[2026-07-17T06:06:37.762+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+[2026-07-17T06:06:37.773+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-17T06:06:37.777+0000] {subprocess.py:93} INFO - 	at scala.util.Try$.apply(Try.scala:213)
+[2026-07-17T06:06:37.778+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+[2026-07-17T06:06:37.779+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+[2026-07-17T06:06:37.780+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+[2026-07-17T06:06:37.788+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+[2026-07-17T06:06:37.791+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[2026-07-17T06:06:37.795+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[2026-07-17T06:06:37.797+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-17T06:06:37.798+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2026-07-17T06:06:37.804+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+[2026-07-17T06:06:37.807+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+[2026-07-17T06:06:37.812+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+[2026-07-17T06:06:37.815+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2463)
+[2026-07-17T06:06:37.824+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$collect$1(RDD.scala:1049)
+[2026-07-17T06:06:37.829+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2026-07-17T06:06:37.831+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2026-07-17T06:06:37.832+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2026-07-17T06:06:37.835+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.collect(RDD.scala:1048)
+[2026-07-17T06:06:37.839+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:448)
+[2026-07-17T06:06:37.844+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4332)
+[2026-07-17T06:06:37.847+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$collect$1(Dataset.scala:3573)
+[2026-07-17T06:06:37.850+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+[2026-07-17T06:06:37.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2026-07-17T06:06:37.855+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+[2026-07-17T06:06:37.857+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2026-07-17T06:06:37.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2026-07-17T06:06:37.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2026-07-17T06:06:37.870+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-17T06:06:37.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2026-07-17T06:06:37.875+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+[2026-07-17T06:06:37.882+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collect(Dataset.scala:3573)
+[2026-07-17T06:06:37.886+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.protocolMetadataAndICTReconstruction(Snapshot.scala:309)
+[2026-07-17T06:06:37.888+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot._reconstructedProtocolMetadataAndICT$lzycompute(Snapshot.scala:203)
+[2026-07-17T06:06:37.890+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot._reconstructedProtocolMetadataAndICT(Snapshot.scala:196)
+[2026-07-17T06:06:37.891+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.metadata(Snapshot.scala:278)
+[2026-07-17T06:06:37.893+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.managedcommit.CommitOwnerProvider$.getTableCommitOwner(CommitOwnerClient.scala:212)
+[2026-07-17T06:06:37.894+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.initializeTableCommitOwner(Snapshot.scala:237)
+[2026-07-17T06:06:37.895+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.Snapshot.<init>(Snapshot.scala:235)
+[2026-07-17T06:06:37.896+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$createSnapshot$2(SnapshotManagement.scala:634)
+[2026-07-17T06:06:37.897+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshotFromGivenOrEquivalentLogSegment(SnapshotManagement.scala:796)
+[2026-07-17T06:06:37.898+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshotFromGivenOrEquivalentLogSegment$(SnapshotManagement.scala:782)
+[2026-07-17T06:06:37.901+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.createSnapshotFromGivenOrEquivalentLogSegment(DeltaLog.scala:74)
+[2026-07-17T06:06:37.902+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshot(SnapshotManagement.scala:627)
+[2026-07-17T06:06:37.903+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.createSnapshot$(SnapshotManagement.scala:618)
+[2026-07-17T06:06:37.905+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.createSnapshot(DeltaLog.scala:74)
+[2026-07-17T06:06:37.906+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotForLogSegmentInternal$1(SnapshotManagement.scala:1043)
+[2026-07-17T06:06:37.908+0000] {subprocess.py:93} INFO - 	at scala.Option.map(Option.scala:230)
+[2026-07-17T06:06:37.910+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotForLogSegmentInternal(SnapshotManagement.scala:1036)
+[2026-07-17T06:06:37.910+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotForLogSegmentInternal$(SnapshotManagement.scala:1031)
+[2026-07-17T06:06:37.912+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getSnapshotForLogSegmentInternal(DeltaLog.scala:74)
+[2026-07-17T06:06:37.915+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getUpdatedSnapshot(SnapshotManagement.scala:1012)
+[2026-07-17T06:06:37.921+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getUpdatedSnapshot$(SnapshotManagement.scala:1003)
+[2026-07-17T06:06:37.922+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getUpdatedSnapshot(DeltaLog.scala:74)
+[2026-07-17T06:06:37.923+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotAtInit$2(SnapshotManagement.scala:583)
+[2026-07-17T06:06:37.924+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-07-17T06:06:37.926+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-07-17T06:06:37.927+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.recordFrameProfile(DeltaLog.scala:74)
+[2026-07-17T06:06:37.932+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$anonfun$getSnapshotAtInit$1(SnapshotManagement.scala:573)
+[2026-07-17T06:06:37.940+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly(SnapshotManagement.scala:78)
+[2026-07-17T06:06:37.941+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.withSnapshotLockInterruptibly$(SnapshotManagement.scala:75)
+[2026-07-17T06:06:37.942+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.withSnapshotLockInterruptibly(DeltaLog.scala:74)
+[2026-07-17T06:06:37.944+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotAtInit(SnapshotManagement.scala:573)
+[2026-07-17T06:06:37.946+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.getSnapshotAtInit$(SnapshotManagement.scala:572)
+[2026-07-17T06:06:37.947+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.getSnapshotAtInit(DeltaLog.scala:74)
+[2026-07-17T06:06:37.949+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.SnapshotManagement.$init$(SnapshotManagement.scala:69)
+[2026-07-17T06:06:37.954+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog.<init>(DeltaLog.scala:80)
+[2026-07-17T06:06:37.956+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$4(DeltaLog.scala:853)
+[2026-07-17T06:06:37.958+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:323)
+[2026-07-17T06:06:37.959+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$3(DeltaLog.scala:848)
+[2026-07-17T06:06:37.960+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile(DeltaLogging.scala:168)
+[2026-07-17T06:06:37.961+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordFrameProfile$(DeltaLogging.scala:166)
+[2026-07-17T06:06:37.962+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordFrameProfile(DeltaLog.scala:651)
+[2026-07-17T06:06:37.963+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.$anonfun$recordDeltaOperationInternal$1(DeltaLogging.scala:136)
+[2026-07-17T06:06:37.965+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation(DatabricksLogging.scala:128)
+[2026-07-17T06:06:37.968+0000] {subprocess.py:93} INFO - 	at com.databricks.spark.util.DatabricksLogging.recordOperation$(DatabricksLogging.scala:117)
+[2026-07-17T06:06:37.970+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordOperation(DeltaLog.scala:651)
+[2026-07-17T06:06:37.972+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperationInternal(DeltaLogging.scala:135)
+[2026-07-17T06:06:37.976+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation(DeltaLogging.scala:125)
+[2026-07-17T06:06:37.977+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.metering.DeltaLogging.recordDeltaOperation$(DeltaLogging.scala:115)
+[2026-07-17T06:06:37.978+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.recordDeltaOperation(DeltaLog.scala:651)
+[2026-07-17T06:06:37.981+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.createDeltaLog$1(DeltaLog.scala:847)
+[2026-07-17T06:06:37.992+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.$anonfun$apply$5(DeltaLog.scala:866)
+[2026-07-17T06:06:37.998+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4792)
+[2026-07-17T06:06:38.004+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)
+[2026-07-17T06:06:38.005+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)
+[2026-07-17T06:06:38.006+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)
+[2026-07-17T06:06:38.008+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2257)
+[2026-07-17T06:06:38.010+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache.get(LocalCache.java:4000)
+[2026-07-17T06:06:38.014+0000] {subprocess.py:93} INFO - 	at com.google.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4789)
+[2026-07-17T06:06:38.022+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.getDeltaLogFromCache$1(DeltaLog.scala:865)
+[2026-07-17T06:06:38.024+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.apply(DeltaLog.scala:875)
+[2026-07-17T06:06:38.025+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.apply(DeltaLog.scala:784)
+[2026-07-17T06:06:38.027+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.DeltaLog$.forTable(DeltaLog.scala:746)
+[2026-07-17T06:06:38.028+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaSink.<init>(DeltaSink.scala:54)
+[2026-07-17T06:06:38.029+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.delta.sources.DeltaDataSource.createSink(DeltaDataSource.scala:174)
+[2026-07-17T06:06:38.032+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.DataSource.createSink(DataSource.scala:313)
+[2026-07-17T06:06:38.038+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.createV1Sink(DataStreamWriter.scala:442)
+[2026-07-17T06:06:38.040+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.startInternal(DataStreamWriter.scala:404)
+[2026-07-17T06:06:38.041+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.streaming.DataStreamWriter.start(DataStreamWriter.scala:251)
+[2026-07-17T06:06:38.042+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2026-07-17T06:06:38.043+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-17T06:06:38.044+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+[2026-07-17T06:06:38.045+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[2026-07-17T06:06:38.047+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2026-07-17T06:06:38.048+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2026-07-17T06:06:38.052+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2026-07-17T06:06:38.055+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2026-07-17T06:06:38.056+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2026-07-17T06:06:38.057+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2026-07-17T06:06:38.059+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2026-07-17T06:06:38.062+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-07-17T06:06:39.060+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-07-17T06:06:39.066+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-17T06:06:39.111+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-07-17T06:06:39.129+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=run_bronze, execution_date=20260717T040000, start_date=20260717T060328, end_date=20260717T060639
+[2026-07-17T06:06:39.165+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 103 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 3076)
+[2026-07-17T06:06:39.226+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-17T06:06:39.277+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-17T06:06:39.283+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
