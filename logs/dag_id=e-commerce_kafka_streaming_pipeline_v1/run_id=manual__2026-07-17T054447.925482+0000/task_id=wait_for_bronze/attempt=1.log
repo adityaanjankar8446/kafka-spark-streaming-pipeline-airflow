@@ -1,0 +1,22 @@
+[2026-07-17T05:46:51.700+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-17T05:46:51.738+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.wait_for_bronze manual__2026-07-17T05:44:47.925482+00:00 [queued]>
+[2026-07-17T05:46:51.748+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.wait_for_bronze manual__2026-07-17T05:44:47.925482+00:00 [queued]>
+[2026-07-17T05:46:51.749+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-07-17T05:46:51.765+0000] {taskinstance.py:2327} INFO - Executing <Task(FileSensor): wait_for_bronze> on 2026-07-17 05:44:47.925482+00:00
+[2026-07-17T05:46:51.775+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'wait_for_bronze', 'manual__2026-07-17T05:44:47.925482+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmp2jpcvlgv']
+[2026-07-17T05:46:51.779+0000] {standard_task_runner.py:91} INFO - Job 89: Subtask wait_for_bronze
+[2026-07-17T05:46:51.796+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2912) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-17T05:46:51.797+0000] {standard_task_runner.py:63} INFO - Started process 2913 to run task
+[2026-07-17T05:46:51.841+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.wait_for_bronze manual__2026-07-17T05:44:47.925482+00:00 [running]> on host da27550080bf
+[2026-07-17T05:46:51.933+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='wait_for_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-17T05:44:47.925482+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-17T05:44:47.925482+00:00'
+[2026-07-17T05:46:51.935+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-17T05:46:51.952+0000] {baseoperator.py:399} WARNING - FileSensor.execute cannot be called outside TaskInstance!
+[2026-07-17T05:46:51.978+0000] {base.py:84} INFO - Using connection ID 'fs_default' for task execution.
+[2026-07-17T05:46:51.979+0000] {filesystem.py:85} INFO - Poking for file /opt/data/bronze/orders
+[2026-07-17T05:46:51.985+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2026-07-17T05:46:51.986+0000] {filesystem.py:85} INFO - Poking for file /opt/data/bronze/orders
+[2026-07-17T05:46:51.990+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-17T05:46:51.997+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=wait_for_bronze, execution_date=20260717T054447, start_date=20260717T054651, end_date=20260717T054651
+[2026-07-17T05:46:52.052+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-17T05:46:52.092+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-17T05:46:52.095+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
