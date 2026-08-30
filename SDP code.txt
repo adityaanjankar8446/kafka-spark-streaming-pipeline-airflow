@@ -1,0 +1,20 @@
+SDP code -
+
+docker exec -it sdp-broker kafka-topics --create --topic orders --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+kafka-topics --create --topic orders --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+kafka-topics --create --topic customers --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+kafka-topics --create --topic products --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+
+
+kafka-topics --bootstrap-server localhost:9092 --list
+
+
+
+
+spark env via docker 
+
+docker exec -it sdp-spark-master /opt/spark/bin/spark-shell --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
