@@ -1,0 +1,896 @@
+[2026-07-22T06:09:30.143+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-22T06:09:30.289+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-22T05:00:00+00:00 [queued]>
+[2026-07-22T06:09:30.339+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-22T05:00:00+00:00 [queued]>
+[2026-07-22T06:09:30.359+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-07-22T06:09:30.426+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): run_bronze> on 2026-07-22 05:00:00+00:00
+[2026-07-22T06:09:30.468+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=17768) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T06:09:30.459+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e-commerce_kafka_streaming_pipeline_v1', 'run_bronze', 'scheduled__2026-07-22T05:00:00+00:00', '--job-id', '333', '--raw', '--subdir', 'DAGS_FOLDER/sdp_pipeline_dag.py', '--cfg-path', '/tmp/tmpsxy63fzv']
+[2026-07-22T06:09:30.473+0000] {standard_task_runner.py:63} INFO - Started process 17789 to run task
+[2026-07-22T06:09:30.475+0000] {standard_task_runner.py:91} INFO - Job 333: Subtask run_bronze
+[2026-07-22T06:09:30.749+0000] {task_command.py:426} INFO - Running <TaskInstance: e-commerce_kafka_streaming_pipeline_v1.run_bronze scheduled__2026-07-22T05:00:00+00:00 [running]> on host da27550080bf
+[2026-07-22T06:09:31.263+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='dev' AIRFLOW_CTX_DAG_ID='e-commerce_kafka_streaming_pipeline_v1' AIRFLOW_CTX_TASK_ID='run_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-07-22T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-22T05:00:00+00:00'
+[2026-07-22T06:09:31.275+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-22T06:09:31.336+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-22T06:09:31.342+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'timeout 150s docker run --rm --network streaming_kafka_project_sdp-net --volume /d/Streaming_kafka_project/pipelines:/opt/pipelines --volume /d/Streaming_kafka_project/data:/opt/data --volume /d/Streaming_kafka_project/checkpoints:/opt/checkpoints --volume /d/Streaming_kafka_project/jars:/opt/jars apache/spark:3.5.1 /opt/spark/bin/spark-submit --master spark://sdp-spark-master:7077 --executor-cores 1 --executor-memory 512m --total-executor-cores 3 --jars /opt/jars/delta-spark_2.12-3.2.0.jar,/opt/jars/delta-storage-3.2.0.jar,/opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar,/opt/jars/kafka-clients-3.4.1.jar,/opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar,/opt/jars/commons-pool2-2.11.1.jar --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog  /opt/pipelines/bronze_runner.py']
+[2026-07-22T06:09:31.378+0000] {subprocess.py:86} INFO - Output:
+[2026-07-22T06:09:41.349+0000] {subprocess.py:93} INFO - 26/07/22 06:09:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-22T06:09:43.408+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SparkContext: Running Spark version 3.5.1
+[2026-07-22T06:09:43.409+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SparkContext: OS info Linux, 6.18.33.2-microsoft-standard-WSL2, amd64
+[2026-07-22T06:09:43.411+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SparkContext: Java version 11.0.22
+[2026-07-22T06:09:43.463+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceUtils: ==============================================================
+[2026-07-22T06:09:43.466+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-07-22T06:09:43.467+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceUtils: ==============================================================
+[2026-07-22T06:09:43.468+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SparkContext: Submitted application: SDP-Bronze
+[2026-07-22T06:09:43.508+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-07-22T06:09:43.531+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+[2026-07-22T06:09:43.535+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-07-22T06:09:43.655+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SecurityManager: Changing view acls to: spark
+[2026-07-22T06:09:43.664+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SecurityManager: Changing modify acls to: spark
+[2026-07-22T06:09:43.669+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SecurityManager: Changing view acls groups to:
+[2026-07-22T06:09:43.671+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SecurityManager: Changing modify acls groups to:
+[2026-07-22T06:09:43.692+0000] {subprocess.py:93} INFO - 26/07/22 06:09:43 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-07-22T06:09:44.412+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO Utils: Successfully started service 'sparkDriver' on port 39377.
+[2026-07-22T06:09:44.480+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO SparkEnv: Registering MapOutputTracker
+[2026-07-22T06:09:44.555+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO SparkEnv: Registering BlockManagerMaster
+[2026-07-22T06:09:44.590+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-07-22T06:09:44.594+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-07-22T06:09:44.613+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-07-22T06:09:44.653+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4991263e-10ec-4611-844c-475ee570c028
+[2026-07-22T06:09:44.676+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-07-22T06:09:44.730+0000] {subprocess.py:93} INFO - 26/07/22 06:09:44 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-07-22T06:09:45.231+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-07-22T06:09:45.387+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-07-22T06:09:45.478+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/delta-spark_2.12-3.2.0.jar at spark://a49788642676:39377/jars/delta-spark_2.12-3.2.0.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.489+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/delta-storage-3.2.0.jar at spark://a49788642676:39377/jars/delta-storage-3.2.0.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.491+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://a49788642676:39377/jars/spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.493+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/kafka-clients-3.4.1.jar at spark://a49788642676:39377/jars/kafka-clients-3.4.1.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.494+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://a49788642676:39377/jars/spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.502+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO SparkContext: Added JAR file:///opt/jars/commons-pool2-2.11.1.jar at spark://a49788642676:39377/jars/commons-pool2-2.11.1.jar with timestamp 1784700583381
+[2026-07-22T06:09:45.822+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sdp-spark-master:7077...
+[2026-07-22T06:09:45.999+0000] {subprocess.py:93} INFO - 26/07/22 06:09:45 INFO TransportClientFactory: Successfully created connection to sdp-spark-master/172.18.0.4:7077 after 99 ms (0 ms spent in bootstraps)
+[2026-07-22T06:09:46.191+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260722060946-0154
+[2026-07-22T06:09:46.196+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260722060946-0154/0 on worker-20260716063602-172.18.0.5-44367 (172.18.0.5:44367) with 1 core(s)
+[2026-07-22T06:09:46.202+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneSchedulerBackend: Granted executor ID app-20260722060946-0154/0 on hostPort 172.18.0.5:44367 with 1 core(s), 512.0 MiB RAM
+[2026-07-22T06:09:46.204+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260722060946-0154/1 on worker-20260716063602-172.18.0.6-33249 (172.18.0.6:33249) with 1 core(s)
+[2026-07-22T06:09:46.205+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneSchedulerBackend: Granted executor ID app-20260722060946-0154/1 on hostPort 172.18.0.6:33249 with 1 core(s), 512.0 MiB RAM
+[2026-07-22T06:09:46.218+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40645.
+[2026-07-22T06:09:46.220+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO NettyBlockTransferService: Server created on a49788642676:40645
+[2026-07-22T06:09:46.221+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-07-22T06:09:46.230+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, a49788642676, 40645, None)
+[2026-07-22T06:09:46.241+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO BlockManagerMasterEndpoint: Registering block manager a49788642676:40645 with 434.4 MiB RAM, BlockManagerId(driver, a49788642676, 40645, None)
+[2026-07-22T06:09:46.242+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, a49788642676, 40645, None)
+[2026-07-22T06:09:46.247+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, a49788642676, 40645, None)
+[2026-07-22T06:09:46.477+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260722060946-0154/0 is now RUNNING
+[2026-07-22T06:09:46.818+0000] {subprocess.py:93} INFO - 26/07/22 06:09:46 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260722060946-0154/1 is now RUNNING
+[2026-07-22T06:09:47.023+0000] {subprocess.py:93} INFO - 26/07/22 06:09:47 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-07-22T06:09:47.553+0000] {subprocess.py:93} INFO - Starting stream: orders -> /opt/data/bronze/orders
+[2026-07-22T06:11:49.221+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 192, in heartbeat
+    self._merge_from(Job._fetch_from_db(self, session))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 89, in wrapped_function
+    for attempt in run_with_db_retries(max_retries=retries, logger=logger, **retry_kwargs):
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 347, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 325, in iter
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 158, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 98, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 316, in _fetch_from_db
+    session.merge(job)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-07-22T06:13:22.336+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-07-22T06:13:27.380+0000] {subprocess.py:93} INFO - 26/07/22 06:11:08 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-22T06:13:27.910+0000] {subprocess.py:93} INFO - Starting stream: customers -> /opt/data/bronze/customers
+[2026-07-22T06:13:27.927+0000] {subprocess.py:93} INFO - 26/07/22 06:11:13 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-22T06:13:27.942+0000] {subprocess.py:93} INFO - Starting stream: products -> /opt/data/bronze/products
+[2026-07-22T06:13:27.946+0000] {subprocess.py:93} INFO - 26/07/22 06:11:18 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2026-07-22T06:13:27.957+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:27.966+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:27.982+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:27.989+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN KafkaOffsetReaderAdmin: Error in attempt 1 getting Kafka offsets:
+[2026-07-22T06:13:27.996+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:28.000+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:28.005+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:28.037+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:28.142+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:28.144+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:28.149+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:28.164+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:28.167+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:28.185+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:28.220+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:28.236+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:28.266+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:28.276+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:28.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:28.290+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:28.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:28.302+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:28.305+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:28.308+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:28.310+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:28.313+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:28.318+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:28.326+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:28.328+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:28.334+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:28.335+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:28.338+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:28.340+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:28.342+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:28.348+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:28.351+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:28.353+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.354+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:28.355+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:28.356+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:28.358+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:28.362+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:28.365+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:28.368+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:28.370+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.371+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:28.373+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:28.374+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:28.377+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.380+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:28.382+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:28.384+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:28.411+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:28.414+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:28.455+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:28.456+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:28.465+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN KafkaOffsetReaderAdmin: Error in attempt 1 getting Kafka offsets:
+[2026-07-22T06:13:28.471+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:28.472+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:28.474+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:28.479+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:28.486+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:28.489+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:28.491+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:28.492+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:28.495+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:28.503+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:28.505+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:28.519+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:28.535+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:28.537+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:28.538+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:28.540+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:28.541+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:28.543+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:28.551+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:28.553+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:28.555+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:28.559+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:28.562+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:28.591+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:28.595+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:28.597+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:28.600+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:28.602+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:28.614+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:28.627+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:28.632+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:28.638+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:28.640+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.642+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:28.644+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:28.659+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:28.665+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:28.670+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:28.674+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:28.677+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:28.683+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.687+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:28.690+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:28.692+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:28.694+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.700+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:28.703+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:28.704+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:28.706+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:28.722+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:28.753+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:28.755+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:28.771+0000] {subprocess.py:93} INFO - 26/07/22 06:11:25 WARN KafkaOffsetReaderAdmin: Error in attempt 1 getting Kafka offsets:
+[2026-07-22T06:13:28.785+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:28.800+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:28.806+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:28.809+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:28.811+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:28.814+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:28.817+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:28.832+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:28.846+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:28.850+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:28.854+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:28.856+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:28.863+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:28.881+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:28.889+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:28.892+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:28.902+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:28.908+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:28.914+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:28.919+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:28.921+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:28.921+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:28.924+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:28.941+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:28.948+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:28.952+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:28.962+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:28.974+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:28.978+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:28.981+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:28.994+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:28.995+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:28.997+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:28.999+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.007+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.009+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.010+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.012+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.014+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.015+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.019+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.021+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.022+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.024+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.025+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.026+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.027+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.028+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.033+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.036+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.037+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.039+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.040+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.042+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN KafkaOffsetReaderAdmin: Error in attempt 2 getting Kafka offsets:
+[2026-07-22T06:13:29.043+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.045+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.047+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.051+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.053+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.054+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.056+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.058+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.058+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.059+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.063+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.068+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.069+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.070+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.071+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.072+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.073+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.074+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.075+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.075+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.077+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.080+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.081+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.083+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.084+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.087+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.095+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.099+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.101+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.103+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.106+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.108+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.110+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.119+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.123+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.128+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.130+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.131+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.147+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.148+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.151+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.152+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.159+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.163+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.165+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.170+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.176+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.177+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.182+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.183+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.189+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.192+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.193+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.195+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN KafkaOffsetReaderAdmin: Error in attempt 2 getting Kafka offsets:
+[2026-07-22T06:13:29.197+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.207+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.210+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.214+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.239+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.243+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.289+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.310+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.312+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.314+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.316+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.319+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.325+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.327+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.329+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.330+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.331+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.333+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.334+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.335+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.337+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.340+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.344+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.346+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.347+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.349+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.355+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.360+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.367+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.371+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.372+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.374+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.375+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.376+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.377+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.378+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.378+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.380+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.380+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.382+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.383+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.384+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.385+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.388+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.391+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.392+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.393+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.394+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.396+0000] {subprocess.py:93} INFO - 26/07/22 06:11:27 WARN KafkaOffsetReaderAdmin: Error in attempt 2 getting Kafka offsets:
+[2026-07-22T06:13:29.397+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.398+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.401+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.404+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.405+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.406+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.408+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.409+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.410+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.411+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.412+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.413+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.414+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.416+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.417+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.419+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.420+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.421+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.422+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.423+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.424+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.425+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.426+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.427+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.428+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.429+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.430+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.432+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.434+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.435+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.436+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.437+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.437+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.438+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.439+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.440+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.441+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.443+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.449+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.452+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.454+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.456+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.457+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.461+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.465+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.467+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.470+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.472+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.473+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.475+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.480+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.482+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.485+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.487+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN KafkaOffsetReaderAdmin: Error in attempt 3 getting Kafka offsets:
+[2026-07-22T06:13:29.496+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.501+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.508+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.516+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.520+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.524+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.535+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.540+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.545+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.547+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.548+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.549+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.549+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.551+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.556+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.557+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.558+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.559+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.560+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.562+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.564+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.565+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.565+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.568+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.570+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.571+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.573+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.575+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.581+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.590+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.592+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.595+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.599+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.607+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.608+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.610+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.618+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.627+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.637+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.638+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.642+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.648+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.650+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.652+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.654+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.656+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.658+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN ClientUtils: Couldn't resolve server broker:9092 from bootstrap.servers as DNS resolution failed for broker
+[2026-07-22T06:13:29.665+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN KafkaOffsetReaderAdmin: Error in attempt 3 getting Kafka offsets:
+[2026-07-22T06:13:29.668+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.671+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.677+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.681+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.683+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.684+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.685+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.686+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.686+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.692+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.697+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.698+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.699+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.701+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.702+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.703+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.718+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.721+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.723+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.729+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.730+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.732+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.734+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.736+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.739+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.743+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.744+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.749+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.752+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.754+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.765+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.767+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.773+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.780+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.783+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.787+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.788+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.790+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.792+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.794+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.797+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.799+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.805+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.809+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.815+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.818+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.821+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.822+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.834+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.838+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.843+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.844+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.846+0000] {subprocess.py:93} INFO - 26/07/22 06:11:29 WARN KafkaOffsetReaderAdmin: Error in attempt 3 getting Kafka offsets:
+[2026-07-22T06:13:29.848+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.849+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.850+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.853+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.866+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.868+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.871+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.877+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:29.891+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:29.893+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:29.902+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:29.909+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:29.910+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.912+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.913+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.915+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:29.923+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:29.925+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:29.926+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:29.927+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:29.928+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:29.931+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:29.933+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:29.937+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:29.945+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:29.950+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:29.953+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:29.955+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:29.956+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:29.957+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:29.958+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:29.960+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.961+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:29.963+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:29.965+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:29.968+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:29.969+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:29.971+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:29.973+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:29.974+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.975+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:29.976+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:29.977+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:29.978+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:29.978+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:29.979+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:29.982+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:29.984+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:29.985+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:29.986+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:29.987+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:29.988+0000] {subprocess.py:93} INFO - 26/07/22 06:13:21 ERROR MicroBatchExecution: Query [id = ebd1d6a1-032e-4643-a232-277702788ee5, runId = 620b6e91-67e9-4465-b4db-75d5166b3b51] terminated with error
+[2026-07-22T06:13:29.990+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:29.991+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:29.992+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:29.993+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:29.994+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:29.994+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:29.995+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:29.996+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:29.999+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:30.001+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:30.002+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:30.004+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:30.005+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:30.007+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.008+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.009+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.011+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:30.017+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:30.018+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:30.020+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:30.021+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:30.022+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:30.023+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:30.023+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:30.024+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:30.025+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:30.027+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:30.029+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:30.030+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:30.032+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:30.034+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:30.036+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:30.037+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.038+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.038+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.039+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.041+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:30.042+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:30.043+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:30.044+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:30.045+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.056+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:30.058+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:30.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:30.068+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.068+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:30.069+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:30.069+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:30.070+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:30.071+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:30.073+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:30.073+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:30.080+0000] {subprocess.py:93} INFO - 26/07/22 06:13:21 ERROR MicroBatchExecution: Query [id = 047a39e8-05bf-4f5f-9e8a-fdccaea23eaa, runId = 467f75ac-f16d-435e-9240-b6153a9978e8] terminated with error
+[2026-07-22T06:13:30.081+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:30.082+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:30.083+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:30.084+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:30.084+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:30.085+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:30.086+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:30.095+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:30.097+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:30.099+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:30.099+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:30.100+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:30.101+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:30.103+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.104+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.106+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.107+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:30.111+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:30.114+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:30.122+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:30.127+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:30.129+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:30.134+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:30.135+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:30.136+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:30.139+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:30.141+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:30.142+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:30.144+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:30.145+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:30.151+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:30.152+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:30.153+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.153+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.154+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.155+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.157+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:30.159+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:30.161+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:30.164+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:30.168+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.170+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:30.171+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:30.172+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:30.175+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.177+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:30.178+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:30.183+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:30.184+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:30.185+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:30.186+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:30.187+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:30.188+0000] {subprocess.py:93} INFO - 26/07/22 06:13:21 ERROR MicroBatchExecution: Query [id = 889be52d-bf3c-415a-8d78-2c053f674e37, runId = 6d6cf89a-5187-4b13-a922-8a91ede6e2c9] terminated with error
+[2026-07-22T06:13:30.192+0000] {subprocess.py:93} INFO - org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+[2026-07-22T06:13:30.194+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:551)
+[2026-07-22T06:13:30.197+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+[2026-07-22T06:13:30.198+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+[2026-07-22T06:13:30.203+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+[2026-07-22T06:13:30.204+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+[2026-07-22T06:13:30.205+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+[2026-07-22T06:13:30.206+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+[2026-07-22T06:13:30.206+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+[2026-07-22T06:13:30.207+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+[2026-07-22T06:13:30.209+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+[2026-07-22T06:13:30.210+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:130)
+[2026-07-22T06:13:30.215+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+[2026-07-22T06:13:30.217+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.217+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.218+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.219+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+[2026-07-22T06:13:30.220+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2026-07-22T06:13:30.220+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2026-07-22T06:13:30.223+0000] {subprocess.py:93} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2026-07-22T06:13:30.227+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2026-07-22T06:13:30.228+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2026-07-22T06:13:30.229+0000] {subprocess.py:93} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2026-07-22T06:13:30.230+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2026-07-22T06:13:30.232+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2026-07-22T06:13:30.233+0000] {subprocess.py:93} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2026-07-22T06:13:30.235+0000] {subprocess.py:93} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2026-07-22T06:13:30.236+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+[2026-07-22T06:13:30.238+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2026-07-22T06:13:30.240+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+[2026-07-22T06:13:30.244+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+[2026-07-22T06:13:30.248+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+[2026-07-22T06:13:30.257+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.261+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+[2026-07-22T06:13:30.266+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+[2026-07-22T06:13:30.269+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+[2026-07-22T06:13:30.271+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+[2026-07-22T06:13:30.274+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2026-07-22T06:13:30.279+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+[2026-07-22T06:13:30.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+[2026-07-22T06:13:30.283+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.288+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2026-07-22T06:13:30.293+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+[2026-07-22T06:13:30.295+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+[2026-07-22T06:13:30.296+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2026-07-22T06:13:30.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+[2026-07-22T06:13:30.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+[2026-07-22T06:13:30.306+0000] {subprocess.py:93} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2026-07-22T06:13:30.307+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2026-07-22T06:13:30.308+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2026-07-22T06:13:30.309+0000] {subprocess.py:93} INFO - 	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:508)
+[2026-07-22T06:13:30.310+0000] {subprocess.py:93} INFO - 	... 45 more
+[2026-07-22T06:13:30.313+0000] {subprocess.py:97} INFO - Command exited with return code 124
+[2026-07-22T06:13:30.325+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-22T06:13:30.459+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 124.
+[2026-07-22T06:13:30.506+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=e-commerce_kafka_streaming_pipeline_v1, task_id=run_bronze, execution_date=20260722T050000, start_date=20260722T060930, end_date=20260722T061330
+[2026-07-22T06:13:30.596+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 333 for task run_bronze (Bash command failed. The command returned a non-zero exit code 124.; 17789)
+[2026-07-22T06:13:30.618+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-22T06:13:30.734+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T06:13:30.737+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
